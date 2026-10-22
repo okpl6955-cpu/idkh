@@ -1,0 +1,2520 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local plr = game.Players.LocalPlayer
+
+local IY_GUI = Instance.new("ScreenGui")
+IY_GUI.Name = "IY_GUI"
+IY_GUI.Parent = player:WaitForChild("PlayerGui")
+
+local Suggestions = Instance.new("Frame")
+Suggestions.Name = "Suggestions"
+Suggestions.Parent = IY_GUI
+Suggestions.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Suggestions.BackgroundTransparency = 0
+Suggestions.BorderColor3 = Color3.fromRGB(46, 46, 47)
+Suggestions.BorderSizePixel = 2
+Suggestions.Position = UDim2.new(0, 2, 1, -240)
+Suggestions.Size = UDim2.new(0, 250, 0, 240)
+Suggestions.AnchorPoint = Vector2.new(0, 0)
+Suggestions.Visible = true
+Suggestions.ZIndex = 5
+Suggestions.ClipsDescendants = false
+Suggestions.LayoutOrder = 0
+Suggestions.Active = false
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = Suggestions
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 0
+Title.TextYAlignment = Enum.TextYAlignment.Center
+Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.Position = UDim2.new(0, 0, 0.08299999684095383, -21)
+Title.Size = UDim2.new(0, 250, 0, 18)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Suggestions"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 18
+Title.TextScaled = false
+Title.TextWrapped = false
+Title.TextTransparency = 0
+Title.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextStrokeTransparency = 1
+Title.AnchorPoint = Vector2.new(0, 0)
+Title.Visible = true
+Title.ZIndex = 5
+Title.ClipsDescendants = false
+Title.LayoutOrder = 0
+Title.Active = false
+Title.LineHeight = 1
+Title.MaxVisibleGraphemes = -1
+
+local Frame = Instance.new("ScrollingFrame")
+Frame.Name = "Frame"
+Frame.Parent = Suggestions
+Frame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Frame.BackgroundTransparency = 0
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 0.0830000564455986, 0)
+Frame.Size = UDim2.new(0, 250, 0, 220)
+Frame.AnchorPoint = Vector2.new(0, 0)
+Frame.Visible = true
+Frame.ZIndex = 5
+Frame.ClipsDescendants = true
+Frame.LayoutOrder = 0
+Frame.Active = false
+Frame.CanvasSize = UDim2.new(0, 0, 0, 840)
+Frame.ScrollBarThickness = 8
+Frame.ScrollingDirection = Enum.ScrollingDirection.XY
+Frame.AutomaticCanvasSize = Enum.AutomaticSize.None
+Frame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+Frame.ScrollBarImageTransparency = 0
+Frame.TopImage = "rbxassetid://2569109007"
+Frame.BottomImage = "rbxassetid://2569109007"
+Frame.MidImage = "rbxassetid://2569109007"
+Frame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local Top = Instance.new("Frame")
+Top.Name = "Top"
+Top.Parent = IY_GUI
+Top.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Top.BackgroundTransparency = 1
+Top.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Top.BorderSizePixel = 0
+Top.Position = UDim2.new(0.5, -230, 0.3540000021457672, -50)
+Top.Size = UDim2.new(0, 457, 0, 18)
+Top.AnchorPoint = Vector2.new(0, 0)
+Top.Visible = true
+Top.ZIndex = 6
+Top.ClipsDescendants = false
+Top.LayoutOrder = 0
+Top.Active = false
+
+local PopupFrame = Instance.new("Frame")
+PopupFrame.Name = "PopupFrame"
+PopupFrame.Parent = Top
+PopupFrame.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+PopupFrame.BackgroundTransparency = 0
+PopupFrame.BorderColor3 = Color3.fromRGB(46, 46, 47)
+PopupFrame.BorderSizePixel = 2
+PopupFrame.Position = UDim2.new(0, 0, 0, 0)
+PopupFrame.Size = UDim2.new(0, 457, 0, 263)
+PopupFrame.AnchorPoint = Vector2.new(0, 0)
+PopupFrame.Visible = true
+PopupFrame.ZIndex = 4
+PopupFrame.ClipsDescendants = true
+PopupFrame.LayoutOrder = 0
+PopupFrame.Active = false
+
+local Select = Instance.new("Frame")
+Select.Name = "Select"
+Select.Parent = PopupFrame
+Select.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Select.BackgroundTransparency = 0
+Select.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Select.BorderSizePixel = 0
+Select.Position = UDim2.new(0, 337, 0, 20)
+Select.Size = UDim2.new(0, 120, 0, 243)
+Select.AnchorPoint = Vector2.new(0, 0)
+Select.Visible = true
+Select.ZIndex = 4
+Select.ClipsDescendants = false
+Select.LayoutOrder = 0
+Select.Active = false
+
+local bans = Instance.new("TextButton")
+bans.Name = "bans"
+bans.Parent = Select
+bans.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+bans.BackgroundTransparency = 0
+bans.BorderColor3 = Color3.fromRGB(46, 46, 47)
+bans.BorderSizePixel = 1
+bans.TextYAlignment = Enum.TextYAlignment.Center
+bans.TextXAlignment = Enum.TextXAlignment.Center
+bans.Position = UDim2.new(0, 6, 0, 81)
+bans.Size = UDim2.new(0, 108, 0, 18)
+bans.Font = Enum.Font.SourceSans
+bans.Text = "Bans"
+bans.TextColor3 = Color3.fromRGB(255, 255, 255)
+bans.TextSize = 14
+bans.TextScaled = false
+bans.TextWrapped = false
+bans.TextTransparency = 0
+bans.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+bans.TextStrokeTransparency = 1
+bans.AnchorPoint = Vector2.new(0, 0)
+bans.Visible = true
+bans.ZIndex = 5
+bans.ClipsDescendants = false
+bans.LayoutOrder = 0
+bans.Active = true
+bans.LineHeight = 1
+bans.MaxVisibleGraphemes = -1
+
+local highlight = Instance.new("TextButton")
+highlight.Name = "highlight"
+highlight.Parent = Select
+highlight.BackgroundColor3 = Color3.fromRGB(74, 74, 76)
+highlight.BackgroundTransparency = 0
+highlight.BorderColor3 = Color3.fromRGB(46, 46, 47)
+highlight.BorderSizePixel = 1
+highlight.TextYAlignment = Enum.TextYAlignment.Center
+highlight.TextXAlignment = Enum.TextXAlignment.Center
+highlight.Position = UDim2.new(0, 4, 0, 4)
+highlight.Size = UDim2.new(0, 112, 0, 22)
+highlight.Font = Enum.Font.SourceSans
+highlight.Text = ""
+highlight.TextColor3 = Color3.fromRGB(255, 255, 255)
+highlight.TextSize = 14
+highlight.TextScaled = false
+highlight.TextWrapped = false
+highlight.TextTransparency = 0
+highlight.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+highlight.TextStrokeTransparency = 1
+highlight.AnchorPoint = Vector2.new(0, 0)
+highlight.Visible = true
+highlight.ZIndex = 4
+highlight.ClipsDescendants = false
+highlight.LayoutOrder = 0
+highlight.Active = true
+highlight.LineHeight = 1
+highlight.MaxVisibleGraphemes = -1
+
+local keybinds = Instance.new("TextButton")
+keybinds.Name = "keybinds"
+keybinds.Parent = Select
+keybinds.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+keybinds.BackgroundTransparency = 0
+keybinds.BorderColor3 = Color3.fromRGB(46, 46, 47)
+keybinds.BorderSizePixel = 1
+keybinds.TextYAlignment = Enum.TextYAlignment.Center
+keybinds.TextXAlignment = Enum.TextXAlignment.Center
+keybinds.Position = UDim2.new(0, 6, 0, 56)
+keybinds.Size = UDim2.new(0, 108, 0, 18)
+keybinds.Font = Enum.Font.SourceSans
+keybinds.Text = "Keybinds"
+keybinds.TextColor3 = Color3.fromRGB(255, 255, 255)
+keybinds.TextSize = 14
+keybinds.TextScaled = false
+keybinds.TextWrapped = false
+keybinds.TextTransparency = 0
+keybinds.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+keybinds.TextStrokeTransparency = 1
+keybinds.AnchorPoint = Vector2.new(0, 0)
+keybinds.Visible = true
+keybinds.ZIndex = 5
+keybinds.ClipsDescendants = false
+keybinds.LayoutOrder = 0
+keybinds.Active = true
+keybinds.LineHeight = 1
+keybinds.MaxVisibleGraphemes = -1
+
+local admins = Instance.new("TextButton")
+admins.Name = "admins"
+admins.Parent = Select
+admins.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+admins.BackgroundTransparency = 0
+admins.BorderColor3 = Color3.fromRGB(46, 46, 47)
+admins.BorderSizePixel = 1
+admins.TextYAlignment = Enum.TextYAlignment.Center
+admins.TextXAlignment = Enum.TextXAlignment.Center
+admins.Position = UDim2.new(0, 6, 0, 106)
+admins.Size = UDim2.new(0, 108, 0, 18)
+admins.Font = Enum.Font.SourceSans
+admins.Text = "Admins"
+admins.TextColor3 = Color3.fromRGB(255, 255, 255)
+admins.TextSize = 14
+admins.TextScaled = false
+admins.TextWrapped = false
+admins.TextTransparency = 0
+admins.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+admins.TextStrokeTransparency = 1
+admins.AnchorPoint = Vector2.new(0, 0)
+admins.Visible = true
+admins.ZIndex = 5
+admins.ClipsDescendants = false
+admins.LayoutOrder = 0
+admins.Active = true
+admins.LineHeight = 1
+admins.MaxVisibleGraphemes = -1
+
+local cmds = Instance.new("TextButton")
+cmds.Name = "cmds"
+cmds.Parent = Select
+cmds.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+cmds.BackgroundTransparency = 0
+cmds.BorderColor3 = Color3.fromRGB(46, 46, 47)
+cmds.BorderSizePixel = 1
+cmds.TextYAlignment = Enum.TextYAlignment.Center
+cmds.TextXAlignment = Enum.TextXAlignment.Center
+cmds.Position = UDim2.new(0, 6, 0, 6)
+cmds.Size = UDim2.new(0, 108, 0, 18)
+cmds.Font = Enum.Font.SourceSans
+cmds.Text = "Commands"
+cmds.TextColor3 = Color3.fromRGB(255, 255, 255)
+cmds.TextSize = 14
+cmds.TextScaled = false
+cmds.TextWrapped = false
+cmds.TextTransparency = 0
+cmds.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+cmds.TextStrokeTransparency = 1
+cmds.AnchorPoint = Vector2.new(0, 0)
+cmds.Visible = true
+cmds.ZIndex = 5
+cmds.ClipsDescendants = false
+cmds.LayoutOrder = 0
+cmds.Active = true
+cmds.LineHeight = 1
+cmds.MaxVisibleGraphemes = -1
+
+local logs = Instance.new("TextButton")
+logs.Name = "logs"
+logs.Parent = Select
+logs.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+logs.BackgroundTransparency = 0
+logs.BorderColor3 = Color3.fromRGB(46, 46, 47)
+logs.BorderSizePixel = 1
+logs.TextYAlignment = Enum.TextYAlignment.Center
+logs.TextXAlignment = Enum.TextXAlignment.Center
+logs.Position = UDim2.new(0, 6, 0, 131)
+logs.Size = UDim2.new(0, 108, 0, 18)
+logs.Font = Enum.Font.SourceSans
+logs.Text = "Logs"
+logs.TextColor3 = Color3.fromRGB(255, 255, 255)
+logs.TextSize = 14
+logs.TextScaled = false
+logs.TextWrapped = false
+logs.TextTransparency = 0
+logs.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+logs.TextStrokeTransparency = 1
+logs.AnchorPoint = Vector2.new(0, 0)
+logs.Visible = true
+logs.ZIndex = 5
+logs.ClipsDescendants = false
+logs.LayoutOrder = 0
+logs.Active = true
+logs.LineHeight = 1
+logs.MaxVisibleGraphemes = -1
+
+local settings = Instance.new("TextButton")
+settings.Name = "settings"
+settings.Parent = Select
+settings.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+settings.BackgroundTransparency = 0
+settings.BorderColor3 = Color3.fromRGB(46, 46, 47)
+settings.BorderSizePixel = 1
+settings.TextYAlignment = Enum.TextYAlignment.Center
+settings.TextXAlignment = Enum.TextXAlignment.Center
+settings.Position = UDim2.new(0, 6, 0, 31)
+settings.Size = UDim2.new(0, 108, 0, 18)
+settings.Font = Enum.Font.SourceSans
+settings.Text = "Settings"
+settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+settings.TextSize = 14
+settings.TextScaled = false
+settings.TextWrapped = false
+settings.TextTransparency = 0
+settings.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+settings.TextStrokeTransparency = 1
+settings.AnchorPoint = Vector2.new(0, 0)
+settings.Visible = true
+settings.ZIndex = 5
+settings.ClipsDescendants = false
+settings.LayoutOrder = 0
+settings.Active = true
+settings.LineHeight = 1
+settings.MaxVisibleGraphemes = -1
+
+local Minimize = Instance.new("ImageButton")
+Minimize.Name = "Minimize"
+Minimize.Parent = PopupFrame
+Minimize.BackgroundColor3 = Color3.fromRGB(95, 95, 95)
+Minimize.BackgroundTransparency = 0
+Minimize.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Minimize.BorderSizePixel = 0
+Minimize.Position = UDim2.new(0, 419, 0, 0)
+Minimize.Size = UDim2.new(0, 18, 0, 18)
+Minimize.AnchorPoint = Vector2.new(0, 0)
+Minimize.Visible = true
+Minimize.ZIndex = 6
+Minimize.ClipsDescendants = false
+Minimize.LayoutOrder = 0
+Minimize.Active = true
+Minimize.Image = ""
+Minimize.ImageTransparency = 1
+Minimize.ImageColor3 = Color3.fromRGB(255, 255, 255)
+Minimize.ScaleType = Enum.ScaleType.Stretch
+Minimize.SliceScale = 1
+minimized = false
+Minimize.MouseButton1Down:Connect(function()
+    if minimized then
+        minimized = false
+        PopupFrame:TweenSize(UDim2.new(0,457,0,263), "InOut", "Quart", 0.5, true, nil)
+    else
+        minimized = true
+        PopupFrame:TweenSize(UDim2.new(0,457,0,18), "InOut", "Quart", 0.5, true, nil)
+    end
+end)
+
+local Items = Instance.new("Frame")
+Items.Name = "Items"
+Items.Parent = PopupFrame
+Items.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Items.BackgroundTransparency = 0
+Items.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Items.BorderSizePixel = 0
+Items.Position = UDim2.new(0, 0, 0, 46)
+Items.Size = UDim2.new(0, 335, 0, 217)
+Items.AnchorPoint = Vector2.new(0, 0)
+Items.Visible = true
+Items.ZIndex = 4
+Items.ClipsDescendants = false
+Items.LayoutOrder = 0
+Items.Active = false
+
+local keybindsFrame = Instance.new("Frame")
+keybindsFrame.Name = "keybindsFrame"
+keybindsFrame.Parent = Items
+keybindsFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+keybindsFrame.BackgroundTransparency = 0
+keybindsFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+keybindsFrame.BorderSizePixel = 1
+keybindsFrame.Position = UDim2.new(0, 0, 0, 0)
+keybindsFrame.Size = UDim2.new(0, 335, 0, 217)
+keybindsFrame.AnchorPoint = Vector2.new(0, 0)
+keybindsFrame.Visible = false
+keybindsFrame.ZIndex = 1
+keybindsFrame.ClipsDescendants = false
+keybindsFrame.LayoutOrder = 0
+keybindsFrame.Active = false
+
+local ListFrame = Instance.new("ScrollingFrame")
+ListFrame.Name = "ListFrame"
+ListFrame.Parent = keybindsFrame
+ListFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+ListFrame.BackgroundTransparency = 1
+ListFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ListFrame.BorderSizePixel = 0
+ListFrame.Position = UDim2.new(0, 0, 0, 0)
+ListFrame.Size = UDim2.new(0, 335, 0, 188)
+ListFrame.AnchorPoint = Vector2.new(0, 0)
+ListFrame.Visible = true
+ListFrame.ZIndex = 4
+ListFrame.ClipsDescendants = true
+ListFrame.LayoutOrder = 0
+ListFrame.Active = false
+ListFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+ListFrame.ScrollBarThickness = 8
+ListFrame.ScrollingDirection = Enum.ScrollingDirection.XY
+ListFrame.AutomaticCanvasSize = Enum.AutomaticSize.None
+ListFrame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+ListFrame.ScrollBarImageTransparency = 0
+ListFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local Clear = Instance.new("TextButton")
+Clear.Name = "Clear"
+Clear.Parent = keybindsFrame
+Clear.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Clear.BackgroundTransparency = 0
+Clear.BorderColor3 = Color3.fromRGB(46, 46, 47)
+Clear.BorderSizePixel = 1
+Clear.TextYAlignment = Enum.TextYAlignment.Center
+Clear.TextXAlignment = Enum.TextXAlignment.Center
+Clear.Position = UDim2.new(0, 240, 0, 194)
+Clear.Size = UDim2.new(0, 90, 0, 18)
+Clear.Font = Enum.Font.SourceSans
+Clear.Text = "Clear Keybinds"
+Clear.TextColor3 = Color3.fromRGB(255, 255, 255)
+Clear.TextSize = 14
+Clear.TextScaled = false
+Clear.TextWrapped = false
+Clear.TextTransparency = 0
+Clear.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Clear.TextStrokeTransparency = 1
+Clear.AnchorPoint = Vector2.new(0, 0)
+Clear.Visible = true
+Clear.ZIndex = 5
+Clear.ClipsDescendants = false
+Clear.LayoutOrder = 0
+Clear.Active = true
+Clear.LineHeight = 1
+Clear.MaxVisibleGraphemes = -1
+
+local Add = Instance.new("TextButton")
+Add.Name = "Add"
+Add.Parent = keybindsFrame
+Add.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Add.BackgroundTransparency = 0
+Add.BorderColor3 = Color3.fromRGB(46, 46, 47)
+Add.BorderSizePixel = 1
+Add.TextYAlignment = Enum.TextYAlignment.Center
+Add.TextXAlignment = Enum.TextXAlignment.Center
+Add.Position = UDim2.new(0, 5, 0, 194)
+Add.Size = UDim2.new(0, 90, 0, 18)
+Add.Font = Enum.Font.SourceSans
+Add.Text = "Add Keybinds"
+Add.TextColor3 = Color3.fromRGB(255, 255, 255)
+Add.TextSize = 14
+Add.TextScaled = false
+Add.TextWrapped = false
+Add.TextTransparency = 0
+Add.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Add.TextStrokeTransparency = 1
+Add.AnchorPoint = Vector2.new(0, 0)
+Add.Visible = true
+Add.ZIndex = 5
+Add.ClipsDescendants = false
+Add.LayoutOrder = 0
+Add.Active = true
+Add.LineHeight = 1
+Add.MaxVisibleGraphemes = -1
+
+local Label = Instance.new("ScrollingFrame")
+Label.Name = "Label"
+Label.Parent = Items
+Label.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Label.BackgroundTransparency = 1
+Label.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Label.BorderSizePixel = 0
+Label.Position = UDim2.new(0, 0, 0, 0)
+Label.Size = UDim2.new(0, 335, 0, 24)
+Label.AnchorPoint = Vector2.new(0, 0)
+Label.Visible = false
+Label.ZIndex = 4
+Label.ClipsDescendants = true
+Label.LayoutOrder = 0
+Label.Active = false
+Label.CanvasSize = UDim2.new(0, 0, 0, 0)
+Label.ScrollBarThickness = 8
+Label.ScrollingDirection = Enum.ScrollingDirection.XY
+Label.AutomaticCanvasSize = Enum.AutomaticSize.None
+Label.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+Label.ScrollBarImageTransparency = 0
+Label.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local closeBox = Instance.new("ImageButton")
+closeBox.Name = "closeBox"
+closeBox.Parent = Label
+closeBox.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+closeBox.BackgroundTransparency = 0
+closeBox.BorderColor3 = Color3.fromRGB(46, 46, 47)
+closeBox.BorderSizePixel = 2
+closeBox.Position = UDim2.new(0, 315, 0, 4)
+closeBox.Size = UDim2.new(0, 16, 0, 16)
+closeBox.AnchorPoint = Vector2.new(0, 0)
+closeBox.Visible = true
+closeBox.ZIndex = 4
+closeBox.ClipsDescendants = false
+closeBox.LayoutOrder = 0
+closeBox.Active = true
+closeBox.Image = "rbxassetid://0"
+closeBox.ImageTransparency = 1
+closeBox.ImageColor3 = Color3.fromRGB(255, 255, 255)
+closeBox.ScaleType = Enum.ScaleType.Stretch
+closeBox.SliceScale = 1
+
+local labelText = Instance.new("TextButton")
+labelText.Name = "labelText"
+labelText.Parent = Label
+labelText.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+labelText.BackgroundTransparency = 1
+labelText.BorderColor3 = Color3.fromRGB(27, 42, 53)
+labelText.BorderSizePixel = 0
+labelText.TextYAlignment = Enum.TextYAlignment.Center
+labelText.TextXAlignment = Enum.TextXAlignment.Left
+labelText.Position = UDim2.new(0, 4, 0, 4)
+labelText.Size = UDim2.new(0, 190, 0, 20)
+labelText.Font = Enum.Font.SourceSans
+labelText.Text = "Error"
+labelText.TextColor3 = Color3.fromRGB(248, 248, 248)
+labelText.TextSize = 20
+labelText.TextScaled = false
+labelText.TextWrapped = false
+labelText.TextTransparency = 0
+labelText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+labelText.TextStrokeTransparency = 1
+labelText.AnchorPoint = Vector2.new(0, 0)
+labelText.Visible = true
+labelText.ZIndex = 4
+labelText.ClipsDescendants = false
+labelText.LayoutOrder = 0
+labelText.Active = true
+labelText.LineHeight = 1
+labelText.MaxVisibleGraphemes = -1
+
+local CMD = Instance.new("TextButton")
+CMD.Name = "CMD"
+CMD.Parent = Items
+CMD.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+CMD.BackgroundTransparency = 1
+CMD.BorderColor3 = Color3.fromRGB(27, 42, 53)
+CMD.BorderSizePixel = 0
+CMD.TextYAlignment = Enum.TextYAlignment.Center
+CMD.TextXAlignment = Enum.TextXAlignment.Left
+CMD.Position = UDim2.new(0.008955223485827446, 0, -0.009216589853167534, 0)
+CMD.Size = UDim2.new(0, 190, 0, 20)
+CMD.Font = Enum.Font.SourceSans
+CMD.Text = "Error"
+CMD.TextColor3 = Color3.fromRGB(248, 248, 248)
+CMD.TextSize = 20
+CMD.TextScaled = false
+CMD.TextWrapped = false
+CMD.TextTransparency = 0
+CMD.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+CMD.TextStrokeTransparency = 1
+CMD.AnchorPoint = Vector2.new(0, 0)
+CMD.Visible = false
+CMD.ZIndex = 5
+CMD.ClipsDescendants = false
+CMD.LayoutOrder = 0
+CMD.Active = true
+CMD.LineHeight = 1
+CMD.MaxVisibleGraphemes = -1
+
+local logsFrame = Instance.new("ScrollingFrame")
+logsFrame.Name = "logsFrame"
+logsFrame.Parent = Items
+logsFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+logsFrame.BackgroundTransparency = 1
+logsFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+logsFrame.BorderSizePixel = 0
+logsFrame.Position = UDim2.new(0, 0, 0, 0)
+logsFrame.Size = UDim2.new(0, 335, 0, 217)
+logsFrame.AnchorPoint = Vector2.new(0, 0)
+logsFrame.Visible = false
+logsFrame.ZIndex = 4
+logsFrame.ClipsDescendants = true
+logsFrame.LayoutOrder = 0
+logsFrame.Active = false
+logsFrame.CanvasSize = UDim2.new(0, 0, 0, 840)
+logsFrame.ScrollBarThickness = 8
+logsFrame.ScrollingDirection = Enum.ScrollingDirection.XY
+logsFrame.AutomaticCanvasSize = Enum.AutomaticSize.None
+logsFrame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+logsFrame.ScrollBarImageTransparency = 0
+logsFrame.TopImage = "rbxassetid://2569109007"
+logsFrame.BottomImage = "rbxassetid://2569109007"
+logsFrame.MidImage = "rbxassetid://2569109007"
+logsFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local cmdsFrame = Instance.new("ScrollingFrame")
+cmdsFrame.Name = "cmdsFrame"
+cmdsFrame.Parent = Items
+cmdsFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+cmdsFrame.BackgroundTransparency = 1
+cmdsFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+cmdsFrame.BorderSizePixel = 0
+cmdsFrame.Position = UDim2.new(0, 0, 0, 0)
+cmdsFrame.Size = UDim2.new(0, 335, 0, 217)
+cmdsFrame.AnchorPoint = Vector2.new(0, 0)
+cmdsFrame.Visible = true
+cmdsFrame.ZIndex = 4
+cmdsFrame.ClipsDescendants = true
+cmdsFrame.LayoutOrder = 0
+cmdsFrame.Active = false
+cmdsFrame.CanvasSize = UDim2.new(0, 0, 0, 840)
+cmdsFrame.ScrollBarThickness = 8
+cmdsFrame.ScrollingDirection = Enum.ScrollingDirection.XY
+cmdsFrame.AutomaticCanvasSize = Enum.AutomaticSize.None
+cmdsFrame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+cmdsFrame.ScrollBarImageTransparency = 0
+cmdsFrame.TopImage = "rbxassetid://2569109007"
+cmdsFrame.BottomImage = "rbxassetid://2569109007"
+cmdsFrame.MidImage = "rbxassetid://2569109007"
+cmdsFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local adminsFrame = Instance.new("ScrollingFrame")
+adminsFrame.Name = "adminsFrame"
+adminsFrame.Parent = Items
+adminsFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+adminsFrame.BackgroundTransparency = 1
+adminsFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+adminsFrame.BorderSizePixel = 0
+adminsFrame.Position = UDim2.new(0, 0, 0, 0)
+adminsFrame.Size = UDim2.new(0, 335, 0, 217)
+adminsFrame.AnchorPoint = Vector2.new(0, 0)
+adminsFrame.Visible = false
+adminsFrame.ZIndex = 4
+adminsFrame.ClipsDescendants = true
+adminsFrame.LayoutOrder = 0
+adminsFrame.Active = false
+adminsFrame.TopImage = "rbxassetid://2569109007"
+adminsFrame.BottomImage = "rbxassetid://2569109007"
+adminsFrame.MidImage = "rbxassetid://2569109007"
+adminsFrame.CanvasSize = UDim2.new(0, 0, 0, 840)
+adminsFrame.ScrollBarThickness = 8
+adminsFrame.ScrollingDirection = Enum.ScrollingDirection.XY
+adminsFrame.AutomaticCanvasSize = Enum.AutomaticSize.None
+adminsFrame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+adminsFrame.ScrollBarImageTransparency = 0
+adminsFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local OWN = Instance.new("TextButton")
+OWN.Name = "OWN"
+OWN.Parent = adminsFrame
+OWN.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+OWN.BackgroundTransparency = 1
+OWN.BorderColor3 = Color3.fromRGB(27, 42, 53)
+OWN.BorderSizePixel = 0
+OWN.TextYAlignment = Enum.TextYAlignment.Center
+OWN.TextXAlignment = Enum.TextXAlignment.Left
+OWN.Position = UDim2.new(0, 3, 0, 0)
+OWN.Size = UDim2.new(0, 190, 0, 20)
+OWN.Font = Enum.Font.SourceSans
+OWN.Text = plr.Name .. " - [OWNER]"
+OWN.TextColor3 = Color3.fromRGB(255, 0, 0)
+OWN.TextSize = 20
+OWN.TextScaled = false
+OWN.TextWrapped = false
+OWN.TextTransparency = 0
+OWN.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+OWN.TextStrokeTransparency = 1
+OWN.AnchorPoint = Vector2.new(0, 0)
+OWN.Visible = true
+OWN.ZIndex = 5
+OWN.ClipsDescendants = false
+OWN.LayoutOrder = 0
+OWN.Active = true
+OWN.LineHeight = 1
+OWN.MaxVisibleGraphemes = -1
+
+local bansFrame = Instance.new("ScrollingFrame")
+bansFrame.Name = "bansFrame"
+bansFrame.Parent = Items
+bansFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+bansFrame.BackgroundTransparency = 1
+bansFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+bansFrame.BorderSizePixel = 0
+bansFrame.Position = UDim2.new(0, 0, 0, 0)
+bansFrame.Size = UDim2.new(0, 335, 0, 217)
+bansFrame.AnchorPoint = Vector2.new(0, 0)
+bansFrame.Visible = false
+bansFrame.ZIndex = 4
+bansFrame.ClipsDescendants = true
+bansFrame.LayoutOrder = 0
+bansFrame.Active = false
+bansFrame.CanvasSize = UDim2.new(0, 0, 0, 840)
+bansFrame.ScrollBarThickness = 8
+bansFrame.ScrollingDirection = Enum.ScrollingDirection.XY
+bansFrame.AutomaticCanvasSize = Enum.AutomaticSize.None
+bansFrame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+bansFrame.ScrollBarImageTransparency = 0
+bansFrame.TopImage = "rbxassetid://2569109007"
+bansFrame.BottomImage = "rbxassetid://2569109007"
+bansFrame.MidImage = "rbxassetid://2569109007"
+bansFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local Search = Instance.new("Frame")
+Search.Name = "Search"
+Search.Parent = Items
+Search.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Search.BackgroundTransparency = 0
+Search.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Search.BorderSizePixel = 0
+Search.Position = UDim2.new(0, 0, 0, -26)
+Search.Size = UDim2.new(0, 335, 0, 24)
+Search.AnchorPoint = Vector2.new(0, 0)
+Search.Visible = true
+Search.ZIndex = 4
+Search.ClipsDescendants = false
+Search.LayoutOrder = 0
+Search.Active = false
+
+local TextBox = Instance.new("TextBox")
+TextBox.Name = "TextBox"
+TextBox.Parent = Search
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.BackgroundTransparency = 1
+TextBox.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextBox.BorderSizePixel = 1
+TextBox.TextYAlignment = Enum.TextYAlignment.Center
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+TextBox.Position = UDim2.new(0, 26, 0, 0)
+TextBox.Size = UDim2.new(0, 309, 0, 22)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "Search"
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 14
+TextBox.TextScaled = false
+TextBox.TextWrapped = false
+TextBox.TextTransparency = 0
+TextBox.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextStrokeTransparency = 1
+TextBox.AnchorPoint = Vector2.new(0, 0)
+TextBox.Visible = true
+TextBox.ZIndex = 4
+TextBox.ClipsDescendants = false
+TextBox.LayoutOrder = 0
+TextBox.ClearTextOnFocus = true
+TextBox.PlaceholderText = ""
+TextBox.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+TextBox.MultiLine = false
+TextBox.Active = true
+TextBox.LineHeight = 1
+TextBox.CursorPosition = 1
+TextBox.TextEditable = true
+TextBox.MaxVisibleGraphemes = -1
+
+TextBox.FocusLost:connect(function()
+    if TextBox.Text == '' or TextBox.Text == ' ' then
+        TextBox.Text = "Search"
+        IndexContents('',true,cmdsFrame,true)
+    end
+end)
+
+local ImageLabel = Instance.new("ImageLabel")
+ImageLabel.Name = "ImageLabel"
+ImageLabel.Parent = Search
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0, 3, 0, 3)
+ImageLabel.Size = UDim2.new(0, 18, 0, 18)
+ImageLabel.AnchorPoint = Vector2.new(0, 0)
+ImageLabel.Visible = true
+ImageLabel.ZIndex = 4
+ImageLabel.ClipsDescendants = false
+ImageLabel.LayoutOrder = 0
+ImageLabel.Active = false
+ImageLabel.Image = "rbxassetid://169476802"
+ImageLabel.ImageTransparency = 0
+ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.ScaleType = Enum.ScaleType.Stretch
+ImageLabel.SliceScale = 1
+
+local settingsFrame = Instance.new("ScrollingFrame")
+settingsFrame.Name = "settingsFrame"
+settingsFrame.Parent = Items
+settingsFrame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+settingsFrame.BackgroundTransparency = 1
+settingsFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+settingsFrame.BorderSizePixel = 0
+settingsFrame.Position = UDim2.new(0, 0, 0, 0)
+settingsFrame.Size = UDim2.new(0, 335, 0, 217)
+settingsFrame.AnchorPoint = Vector2.new(0, 0)
+settingsFrame.Visible = false
+settingsFrame.ZIndex = 4
+settingsFrame.ClipsDescendants = true
+settingsFrame.LayoutOrder = 0
+settingsFrame.Active = false
+settingsFrame.CanvasSize = UDim2.new(0, 0, 0, 840)    
+settingsFrame.TopImage = "rbxassetid://2569109007"
+settingsFrame.BottomImage = "rbxassetid://2569109007"
+settingsFrame.MidImage = "rbxassetid://2569109007"
+settingsFrame.ScrollBarThickness = 8
+settingsFrame.ScrollingDirection = Enum.ScrollingDirection.XY
+settingsFrame.AutomaticCanvasSize = Enum.AutomaticSize.None
+settingsFrame.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+settingsFrame.ScrollBarImageTransparency = 0
+settingsFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+local prefixText = Instance.new("TextButton")
+prefixText.Name = "prefixText"
+prefixText.Parent = settingsFrame
+prefixText.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+prefixText.BackgroundTransparency = 1
+prefixText.BorderColor3 = Color3.fromRGB(27, 42, 53)
+prefixText.BorderSizePixel = 0
+prefixText.TextYAlignment = Enum.TextYAlignment.Center
+prefixText.TextXAlignment = Enum.TextXAlignment.Left
+prefixText.Position = UDim2.new(0, 4, 0, 4)
+prefixText.Size = UDim2.new(0, 190, 0, 20)
+prefixText.Font = Enum.Font.SourceSans
+prefixText.Text = "Prefix"
+prefixText.TextColor3 = Color3.fromRGB(248, 248, 248)
+prefixText.TextSize = 20
+prefixText.TextScaled = false
+prefixText.TextWrapped = false
+prefixText.TextTransparency = 0
+prefixText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+prefixText.TextStrokeTransparency = 1
+prefixText.AnchorPoint = Vector2.new(0, 0)
+prefixText.Visible = true
+prefixText.ZIndex = 4
+prefixText.ClipsDescendants = false
+prefixText.LayoutOrder = 0
+prefixText.Active = true
+prefixText.LineHeight = 1
+prefixText.MaxVisibleGraphemes = -1
+
+local allowfriendsBox = Instance.new("ImageButton")
+allowfriendsBox.Name = "allowfriendsBox"
+allowfriendsBox.Parent = settingsFrame
+allowfriendsBox.BackgroundColor3 = Color3.fromRGB(74, 74, 76)
+allowfriendsBox.BackgroundTransparency = 0
+allowfriendsBox.BorderColor3 = Color3.fromRGB(46, 46, 47)
+allowfriendsBox.BorderSizePixel = 2
+allowfriendsBox.Position = UDim2.new(0, 313, 0, 50)
+allowfriendsBox.Size = UDim2.new(0, 16, 0, 16)
+allowfriendsBox.AnchorPoint = Vector2.new(0, 0)
+allowfriendsBox.Visible = true
+allowfriendsBox.ZIndex = 4
+allowfriendsBox.ClipsDescendants = false
+allowfriendsBox.LayoutOrder = 0
+allowfriendsBox.Active = true
+allowfriendsBox.Image = "rbxassetid://0"
+allowfriendsBox.ImageTransparency = 1
+allowfriendsBox.ImageColor3 = Color3.fromRGB(255, 255, 255)
+allowfriendsBox.ScaleType = Enum.ScaleType.Stretch
+allowfriendsBox.SliceScale = 1
+local toggl = false
+
+allowfriendsBox.MouseButton1Click:Connect(function()
+    toggl = not toggl
+
+    if toggl then
+        allowfriendsBox.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+    else
+        allowfriendsBox.BackgroundColor3 = Color3.fromRGB(74, 74, 76)
+    end
+end)
+
+local suggestionsText = Instance.new("TextButton")
+suggestionsText.Name = "suggestionsText"
+suggestionsText.Parent = settingsFrame
+suggestionsText.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+suggestionsText.BackgroundTransparency = 1
+suggestionsText.BorderColor3 = Color3.fromRGB(27, 42, 53)
+suggestionsText.BorderSizePixel = 0
+suggestionsText.TextYAlignment = Enum.TextYAlignment.Center
+suggestionsText.TextXAlignment = Enum.TextXAlignment.Left
+suggestionsText.Position = UDim2.new(0, 4, 0, 26)
+suggestionsText.Size = UDim2.new(0, 190, 0, 20)
+suggestionsText.Font = Enum.Font.SourceSans
+suggestionsText.Text = "Suggestions"
+suggestionsText.TextColor3 = Color3.fromRGB(248, 248, 248)
+suggestionsText.TextSize = 20
+suggestionsText.TextScaled = false
+suggestionsText.TextWrapped = false
+suggestionsText.TextTransparency = 0
+suggestionsText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+suggestionsText.TextStrokeTransparency = 1
+suggestionsText.AnchorPoint = Vector2.new(0, 0)
+suggestionsText.Visible = true
+suggestionsText.ZIndex = 4
+suggestionsText.ClipsDescendants = false
+suggestionsText.LayoutOrder = 0
+suggestionsText.Active = true
+suggestionsText.LineHeight = 1
+suggestionsText.MaxVisibleGraphemes = -1
+
+local suggestionsBox = Instance.new("ImageButton")
+suggestionsBox.Name = "suggestionsBox"
+suggestionsBox.Parent = settingsFrame
+suggestionsBox.BackgroundColor3 = Color3.fromRGB(74, 74, 76)
+suggestionsBox.BackgroundTransparency = 0
+suggestionsBox.BorderColor3 = Color3.fromRGB(46, 46, 47)
+suggestionsBox.BorderSizePixel = 2
+suggestionsBox.Position = UDim2.new(0, 313, 0, 28)
+suggestionsBox.Size = UDim2.new(0, 16, 0, 16)
+suggestionsBox.AnchorPoint = Vector2.new(0, 0)
+suggestionsBox.Visible = true
+suggestionsBox.ZIndex = 4
+suggestionsBox.ClipsDescendants = false
+suggestionsBox.LayoutOrder = 0
+suggestionsBox.Active = true
+suggestionsBox.Image = "rbxassetid://0"
+suggestionsBox.ImageTransparency = 1
+suggestionsBox.ImageColor3 = Color3.fromRGB(255, 255, 255)
+suggestionsBox.ScaleType = Enum.ScaleType.Stretch
+suggestionsBox.SliceScale = 1
+local toggled = false
+
+suggestionsBox.MouseButton1Click:Connect(function()
+    toggled = not toggled
+
+    if toggled then
+        suggestionsBox.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+        Suggestions.Visible = false
+    else
+        suggestionsBox.BackgroundColor3 = Color3.fromRGB(74, 74, 76)
+        Suggestions.Visible = true
+    end
+end)
+
+local prefixBox = Instance.new("TextBox")
+prefixBox.Name = "prefixBox"
+prefixBox.Parent = settingsFrame
+prefixBox.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+prefixBox.BackgroundTransparency = 0
+prefixBox.BorderColor3 = Color3.fromRGB(46, 46, 47)
+prefixBox.BorderSizePixel = 0
+prefixBox.TextYAlignment = Enum.TextYAlignment.Center
+prefixBox.TextXAlignment = Enum.TextXAlignment.Center
+prefixBox.Position = UDim2.new(0, 311, 0, 4)
+prefixBox.Size = UDim2.new(0, 20, 0, 20)
+prefixBox.Font = Enum.Font.SourceSans
+prefixBox.Text = ";"
+prefixBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+prefixBox.TextSize = 16
+prefixBox.TextScaled = false
+prefixBox.TextWrapped = false
+prefixBox.TextTransparency = 0
+prefixBox.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+prefixBox.TextStrokeTransparency = 1
+prefixBox.AnchorPoint = Vector2.new(0, 0)
+prefixBox.Visible = true
+prefixBox.ZIndex = 4
+prefixBox.ClipsDescendants = false
+prefixBox.LayoutOrder = 0
+prefixBox.ClearTextOnFocus = true
+prefixBox.PlaceholderText = ""
+prefixBox.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+prefixBox.MultiLine = false
+prefixBox.Active = true
+prefixBox.LineHeight = 1
+prefixBox.CursorPosition = 1
+prefixBox.TextEditable = true
+prefixBox.MaxVisibleGraphemes = -1
+
+local allowfriendsText = Instance.new("TextButton")
+allowfriendsText.Name = "allowfriendsText"
+allowfriendsText.Parent = settingsFrame
+allowfriendsText.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+allowfriendsText.BackgroundTransparency = 1
+allowfriendsText.BorderColor3 = Color3.fromRGB(27, 42, 53)
+allowfriendsText.BorderSizePixel = 0
+allowfriendsText.TextYAlignment = Enum.TextYAlignment.Center
+allowfriendsText.TextXAlignment = Enum.TextXAlignment.Left
+allowfriendsText.Position = UDim2.new(0, 4, 0, 48)
+allowfriendsText.Size = UDim2.new(0, 190, 0, 20)
+allowfriendsText.Font = Enum.Font.SourceSans
+allowfriendsText.Text = "Allow friends on serverlock/agelock"
+allowfriendsText.TextColor3 = Color3.fromRGB(248, 248, 248)
+allowfriendsText.TextSize = 20
+allowfriendsText.TextScaled = false
+allowfriendsText.TextWrapped = false
+allowfriendsText.TextTransparency = 0
+allowfriendsText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+allowfriendsText.TextStrokeTransparency = 1
+allowfriendsText.AnchorPoint = Vector2.new(0, 0)
+allowfriendsText.Visible = true
+allowfriendsText.ZIndex = 4
+allowfriendsText.ClipsDescendants = false
+allowfriendsText.LayoutOrder = 0
+allowfriendsText.Active = true
+allowfriendsText.LineHeight = 1
+allowfriendsText.MaxVisibleGraphemes = -1
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = PopupFrame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 1
+Title.TextYAlignment = Enum.TextYAlignment.Center
+Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.Position = UDim2.new(0, 0, -0.0028560906648635864, 0)
+Title.Size = UDim2.new(0, 457, 0, 18)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Infinite Yield [BETA]"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14
+Title.TextScaled = false
+Title.TextWrapped = false
+Title.TextTransparency = 0
+Title.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextStrokeTransparency = 1
+Title.AnchorPoint = Vector2.new(0, 0)
+Title.Visible = true
+Title.ZIndex = 6
+Title.ClipsDescendants = false
+Title.LayoutOrder = 0
+Title.Active = false
+Title.LineHeight = 1
+Title.MaxVisibleGraphemes = -1
+
+local Close = Instance.new("ImageButton")
+Close.Name = "Close"
+Close.Parent = PopupFrame
+Close.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Close.BackgroundTransparency = 0
+Close.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0, 439, 0, 0)
+Close.Size = UDim2.new(0, 18, 0, 18)
+Close.AnchorPoint = Vector2.new(0, 0)
+Close.Visible = true
+Close.ZIndex = 6
+Close.ClipsDescendants = false
+Close.LayoutOrder = 0
+Close.Active = true
+Close.Image = ""
+Close.ImageTransparency = 1
+Close.ImageColor3 = Color3.fromRGB(255, 255, 255)
+Close.ScaleType = Enum.ScaleType.Stretch
+Close.SliceScale = 1
+
+local PersonalHint = Instance.new("Frame")
+PersonalHint.Name = "PersonalHint"
+PersonalHint.Parent = IY_GUI
+PersonalHint.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+PersonalHint.BackgroundTransparency = 0
+PersonalHint.BorderColor3 = Color3.fromRGB(46, 46, 47)
+PersonalHint.BorderSizePixel = 2
+PersonalHint.Position = UDim2.new(0.5, 0, 0, 10)
+PersonalHint.Size = UDim2.new(0, 0, 0, 24)
+PersonalHint.AnchorPoint = Vector2.new(0, 0)
+PersonalHint.Visible = false
+PersonalHint.ZIndex = 7
+PersonalHint.ClipsDescendants = true
+PersonalHint.LayoutOrder = 0
+PersonalHint.Active = false
+
+local Message = Instance.new("TextButton")
+Message.Name = "Message"
+Message.Parent = PersonalHint
+Message.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+Message.BackgroundTransparency = 1
+Message.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Message.BorderSizePixel = 0
+Message.TextYAlignment = Enum.TextYAlignment.Center
+Message.TextXAlignment = Enum.TextXAlignment.Center
+Message.Position = UDim2.new(0, 0, 0, 0)
+Message.Size = UDim2.new(0, 0, 0, 24)
+Message.Font = Enum.Font.SourceSans
+Message.Text = "Error"
+Message.TextColor3 = Color3.fromRGB(248, 248, 248)
+Message.TextSize = 20
+Message.TextScaled = false
+Message.TextWrapped = true
+Message.TextTransparency = 0
+Message.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Message.TextStrokeTransparency = 1
+Message.AnchorPoint = Vector2.new(0, 0)
+Message.Visible = true
+Message.ZIndex = 7
+Message.ClipsDescendants = false
+Message.LayoutOrder = 0
+Message.Active = true
+Message.LineHeight = 1
+Message.MaxVisibleGraphemes = -1
+
+local KeybindsEditor = Instance.new("Frame")
+KeybindsEditor.Name = "KeybindsEditor"
+KeybindsEditor.Parent = IY_GUI
+KeybindsEditor.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+KeybindsEditor.BackgroundTransparency = 0
+KeybindsEditor.BorderColor3 = Color3.fromRGB(46, 46, 47)
+KeybindsEditor.BorderSizePixel = 2
+KeybindsEditor.Position = UDim2.new(0.5, -230, 1, 5)
+KeybindsEditor.Size = UDim2.new(0, 457, 0, 96)
+KeybindsEditor.AnchorPoint = Vector2.new(0, 0)
+KeybindsEditor.Visible = true
+KeybindsEditor.ZIndex = 5
+KeybindsEditor.ClipsDescendants = true
+KeybindsEditor.LayoutOrder = 0
+KeybindsEditor.Active = false
+
+local FlyText = Instance.new("TextLabel")
+FlyText.Name = "FlyText"
+FlyText.Parent = KeybindsEditor
+FlyText.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+FlyText.BackgroundTransparency = 0
+FlyText.BorderColor3 = Color3.fromRGB(46, 46, 47)
+FlyText.BorderSizePixel = 0
+FlyText.TextYAlignment = Enum.TextYAlignment.Center
+FlyText.TextXAlignment = Enum.TextXAlignment.Center
+FlyText.Position = UDim2.new(0, 226, 0, 48)
+FlyText.Size = UDim2.new(0, 170, 0, 20)
+FlyText.Font = Enum.Font.SourceSans
+FlyText.Text = "Toggle Fly"
+FlyText.TextColor3 = Color3.fromRGB(255, 255, 255)
+FlyText.TextSize = 16
+FlyText.TextScaled = false
+FlyText.TextWrapped = true
+FlyText.TextTransparency = 0
+FlyText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+FlyText.TextStrokeTransparency = 1
+FlyText.AnchorPoint = Vector2.new(0, 0)
+FlyText.Visible = true
+FlyText.ZIndex = 7
+FlyText.ClipsDescendants = false
+FlyText.LayoutOrder = 0
+FlyText.Active = false
+FlyText.LineHeight = 1
+FlyText.MaxVisibleGraphemes = -1
+
+local Line = Instance.new("Frame")
+Line.Name = "Line"
+Line.Parent = KeybindsEditor
+Line.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Line.BackgroundTransparency = 0
+Line.BorderColor3 = Color3.fromRGB(46, 46, 47)
+Line.BorderSizePixel = 0
+Line.Position = UDim2.new(0, 210, 0, 20)
+Line.Size = UDim2.new(0, 2, 0, 76)
+Line.AnchorPoint = Vector2.new(0, 0)
+Line.Visible = true
+Line.ZIndex = 5
+Line.ClipsDescendants = false
+Line.LayoutOrder = 0
+Line.Active = false
+
+local keybindCmd = Instance.new("TextBox")
+keybindCmd.Name = "keybindCmd"
+keybindCmd.Parent = KeybindsEditor
+keybindCmd.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+keybindCmd.BackgroundTransparency = 0
+keybindCmd.BorderColor3 = Color3.fromRGB(46, 46, 47)
+keybindCmd.BorderSizePixel = 0
+keybindCmd.TextYAlignment = Enum.TextYAlignment.Center
+keybindCmd.TextXAlignment = Enum.TextXAlignment.Center
+keybindCmd.Position = UDim2.new(0, 226, 0, 24)
+keybindCmd.Size = UDim2.new(0, 170, 0, 20)
+keybindCmd.Font = Enum.Font.SourceSans
+keybindCmd.Text = "      Type Command Here      "
+keybindCmd.TextColor3 = Color3.fromRGB(255, 255, 255)
+keybindCmd.TextSize = 18
+keybindCmd.TextScaled = true
+keybindCmd.TextWrapped = true
+keybindCmd.TextTransparency = 0
+keybindCmd.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+keybindCmd.TextStrokeTransparency = 1
+keybindCmd.AnchorPoint = Vector2.new(0, 0)
+keybindCmd.Visible = true
+keybindCmd.ZIndex = 7
+keybindCmd.ClipsDescendants = false
+keybindCmd.LayoutOrder = 0
+keybindCmd.ClearTextOnFocus = true
+keybindCmd.PlaceholderText = ""
+keybindCmd.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+keybindCmd.MultiLine = false
+keybindCmd.Active = true
+keybindCmd.LineHeight = 1
+keybindCmd.CursorPosition = 1
+keybindCmd.TextEditable = true
+keybindCmd.MaxVisibleGraphemes = -1
+        keybindCmd.FocusLost:connect(function()
+            if keybindCmd.Text == '' then
+                keybindCmd.Text = '      Type Command Here      '
+            end
+        end)
+
+local NoclipText = Instance.new("TextLabel")
+NoclipText.Name = "NoclipText"
+NoclipText.Parent = KeybindsEditor
+NoclipText.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+NoclipText.BackgroundTransparency = 0
+NoclipText.BorderColor3 = Color3.fromRGB(46, 46, 47)
+NoclipText.BorderSizePixel = 0
+NoclipText.TextYAlignment = Enum.TextYAlignment.Center
+NoclipText.TextXAlignment = Enum.TextXAlignment.Center
+NoclipText.Position = UDim2.new(0, 226, 0, 72)
+NoclipText.Size = UDim2.new(0, 170, 0, 20)
+NoclipText.Font = Enum.Font.SourceSans
+NoclipText.Text = "Toggle Noclip"
+NoclipText.TextColor3 = Color3.fromRGB(255, 255, 255)
+NoclipText.TextSize = 16
+NoclipText.TextScaled = false
+NoclipText.TextWrapped = true
+NoclipText.TextTransparency = 0
+NoclipText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+NoclipText.TextStrokeTransparency = 1
+NoclipText.AnchorPoint = Vector2.new(0, 0)
+NoclipText.Visible = true
+NoclipText.ZIndex = 7
+NoclipText.ClipsDescendants = false
+NoclipText.LayoutOrder = 0
+NoclipText.Active = false
+NoclipText.LineHeight = 1
+NoclipText.MaxVisibleGraphemes = -1
+
+local Close2 = Instance.new("ImageButton")
+Close2.Name = "Close2"
+Close2.Parent = KeybindsEditor
+Close2.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Close2.BackgroundTransparency = 0
+Close2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Close2.BorderSizePixel = 0
+Close2.Position = UDim2.new(0, 439, 0, 0)
+Close2.Size = UDim2.new(0, 18, 0, 18)
+Close2.AnchorPoint = Vector2.new(0, 0)
+Close2.Visible = true
+Close2.ZIndex = 7
+Close2.ClipsDescendants = false
+Close2.LayoutOrder = 0
+Close2.Active = true
+Close2.Image = ""
+Close2.ImageTransparency = 1
+Close2.ImageColor3 = Color3.fromRGB(255, 255, 255)
+Close2.ScaleType = Enum.ScaleType.Stretch
+Close2.SliceScale = 1
+
+local Desc = Instance.new("TextLabel")
+Desc.Name = "Desc"
+Desc.Parent = KeybindsEditor
+Desc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Desc.BackgroundTransparency = 1
+Desc.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Desc.BorderSizePixel = 1
+Desc.TextYAlignment = Enum.TextYAlignment.Center
+Desc.TextXAlignment = Enum.TextXAlignment.Center
+Desc.Position = UDim2.new(0, 0, 0, 67)
+Desc.Size = UDim2.new(0, 208, 0, 29)
+Desc.Font = Enum.Font.SourceSans
+Desc.Text = "Click the button above and press a key/mouse button. Then select what you want to bind it to."
+Desc.TextColor3 = Color3.fromRGB(255, 255, 255)
+Desc.TextSize = 12
+Desc.TextScaled = false
+Desc.TextWrapped = true
+Desc.TextTransparency = 0
+Desc.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Desc.TextStrokeTransparency = 1
+Desc.AnchorPoint = Vector2.new(0, 0)
+Desc.Visible = true
+Desc.ZIndex = 7
+Desc.ClipsDescendants = false
+Desc.LayoutOrder = 0
+Desc.Active = false
+Desc.LineHeight = 1
+Desc.MaxVisibleGraphemes = -1
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = KeybindsEditor
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 1
+Title.TextYAlignment = Enum.TextYAlignment.Center
+Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.Position = UDim2.new(0, 0, -0.0028560906648635864, 0)
+Title.Size = UDim2.new(0, 457, 0, 18)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Add Keybinds"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14
+Title.TextScaled = false
+Title.TextWrapped = false
+Title.TextTransparency = 0
+Title.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextStrokeTransparency = 1
+Title.AnchorPoint = Vector2.new(0, 0)
+Title.Visible = true
+Title.ZIndex = 7
+Title.ClipsDescendants = false
+Title.LayoutOrder = 0
+Title.Active = false
+Title.LineHeight = 1
+Title.MaxVisibleGraphemes = -1
+
+local Frame1 = Instance.new("Frame")
+Frame1.Name = "Frame1"
+Frame1.Parent = KeybindsEditor
+Frame1.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Frame1.BackgroundTransparency = 0
+Frame1.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame1.BorderSizePixel = 0
+Frame1.Position = UDim2.new(0, 0, 0, 20)
+Frame1.Size = UDim2.new(0, 457, 0, 130)
+Frame1.AnchorPoint = Vector2.new(0, 0)
+Frame1.Visible = true
+Frame1.ZIndex = 5
+Frame1.ClipsDescendants = false
+Frame1.LayoutOrder = 0
+Frame1.Active = false
+
+local Minimize2 = Instance.new("ImageButton")
+Minimize2.Name = "Minimize2"
+Minimize2.Parent = KeybindsEditor
+Minimize2.BackgroundColor3 = Color3.fromRGB(95, 95, 95)
+Minimize2.BackgroundTransparency = 0
+Minimize2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Minimize2.BorderSizePixel = 0
+Minimize2.Position = UDim2.new(0, 419, 0, 0)
+Minimize2.Size = UDim2.new(0, 18, 0, 18)
+Minimize2.AnchorPoint = Vector2.new(0, 0)
+Minimize2.Visible = true
+Minimize2.ZIndex = 7
+Minimize2.ClipsDescendants = false
+Minimize2.LayoutOrder = 0
+Minimize2.Active = true
+Minimize2.Image = ""
+Minimize2.ImageTransparency = 1
+Minimize2.ImageColor3 = Color3.fromRGB(255, 255, 255)
+Minimize2.ScaleType = Enum.ScaleType.Stretch
+Minimize2.SliceScale = 1
+
+local Cmdbar = Instance.new("TextBox")
+Cmdbar.Name = "Cmdbar"
+Cmdbar.Parent = IY_GUI
+Cmdbar.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Cmdbar.BackgroundTransparency = 0
+Cmdbar.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Cmdbar.BorderSizePixel = 0
+Cmdbar.TextYAlignment = Enum.TextYAlignment.Center
+Cmdbar.TextXAlignment = Enum.TextXAlignment.Center
+Cmdbar.Position = UDim2.new(1, -250, 1, -20)
+Cmdbar.Size = UDim2.new(0, 250, 0, 20)
+Cmdbar.Font = Enum.Font.SourceSans
+Cmdbar.Text = "Command Bar"
+Cmdbar.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cmdbar.TextSize = 18
+Cmdbar.TextScaled = true
+Cmdbar.TextWrapped = true
+Cmdbar.TextTransparency = 0
+Cmdbar.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Cmdbar.TextStrokeTransparency = 1
+Cmdbar.AnchorPoint = Vector2.new(0, 0)
+Cmdbar.Visible = true
+Cmdbar.ZIndex = 7
+Cmdbar.ClipsDescendants = false
+Cmdbar.LayoutOrder = 0
+Cmdbar.ClearTextOnFocus = true
+Cmdbar.PlaceholderText = ""
+Cmdbar.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+Cmdbar.MultiLine = false
+Cmdbar.Active = true
+Cmdbar.LineHeight = 1
+Cmdbar.CursorPosition = 1
+Cmdbar.TextEditable = true
+Cmdbar.MaxVisibleGraphemes = -1
+
+wait(3)
+local AwaitingInput = false
+local IYMouse = Players.LocalPlayer:GetMouse()
+local prefix = ';'
+local suggestionsEnabled = true
+
+local AddFly = Instance.new("TextButton")
+AddFly.Name = "AddFly"
+AddFly.Parent = KeybindsEditor
+AddFly.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+AddFly.BackgroundTransparency = 0
+AddFly.BorderColor3 = Color3.fromRGB(46, 46, 47)
+AddFly.BorderSizePixel = 1
+AddFly.TextYAlignment = Enum.TextYAlignment.Center
+AddFly.TextXAlignment = Enum.TextXAlignment.Center
+AddFly.Position = UDim2.new(0, 401, 0, 49)
+AddFly.Size = UDim2.new(0, 51, 0, 18)
+AddFly.Font = Enum.Font.SourceSans
+AddFly.Text = "Add"
+AddFly.TextColor3 = Color3.fromRGB(255, 255, 255)
+AddFly.TextSize = 16
+AddFly.TextScaled = false
+AddFly.TextWrapped = false
+AddFly.TextTransparency = 0
+AddFly.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+AddFly.TextStrokeTransparency = 1
+AddFly.AnchorPoint = Vector2.new(0, 0)
+AddFly.Visible = true
+AddFly.ZIndex = 5
+AddFly.ClipsDescendants = false
+AddFly.LayoutOrder = 0
+AddFly.Active = true
+AddFly.LineHeight = 1
+AddFly.MaxVisibleGraphemes = -1
+
+local CTB = Instance.new("TextButton")
+CTB.Name = "CTB"
+CTB.Parent = KeybindsEditor
+CTB.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+CTB.BackgroundTransparency = 0
+CTB.BorderColor3 = Color3.fromRGB(46, 46, 47)
+CTB.BorderSizePixel = 1
+CTB.TextYAlignment = Enum.TextYAlignment.Center
+CTB.TextXAlignment = Enum.TextXAlignment.Center
+CTB.Position = UDim2.new(0, 50, 0, 25)
+CTB.Size = UDim2.new(0, 108, 0, 42)
+CTB.Font = Enum.Font.SourceSans
+CTB.Text = "Click To Bind"
+CTB.TextColor3 = Color3.fromRGB(255, 255, 255)
+CTB.TextSize = 16
+CTB.TextScaled = false
+CTB.TextWrapped = false
+CTB.TextTransparency = 0
+CTB.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+CTB.TextStrokeTransparency = 1
+CTB.AnchorPoint = Vector2.new(0, 0)
+CTB.Visible = true
+CTB.ZIndex = 5
+CTB.ClipsDescendants = false
+CTB.LayoutOrder = 0
+CTB.Active = true
+CTB.LineHeight = 1
+CTB.MaxVisibleGraphemes = -1
+CTB.MouseButton1Click:Connect(function()
+            AwaitingInput = true
+            CTB.Text = 'Press Something'
+end)
+
+local AddCmd = Instance.new("TextButton")
+AddCmd.Name = "AddCmd"
+AddCmd.Parent = KeybindsEditor
+AddCmd.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+AddCmd.BackgroundTransparency = 0
+AddCmd.BorderColor3 = Color3.fromRGB(46, 46, 47)
+AddCmd.BorderSizePixel = 1
+AddCmd.TextYAlignment = Enum.TextYAlignment.Center
+AddCmd.TextXAlignment = Enum.TextXAlignment.Center
+AddCmd.Position = UDim2.new(0, 401, 0, 25)
+AddCmd.Size = UDim2.new(0, 51, 0, 18)
+AddCmd.Font = Enum.Font.SourceSans
+AddCmd.Text = "Add"
+AddCmd.TextColor3 = Color3.fromRGB(255, 255, 255)
+AddCmd.TextSize = 16
+AddCmd.TextScaled = false
+AddCmd.TextWrapped = false
+AddCmd.TextTransparency = 0
+AddCmd.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+AddCmd.TextStrokeTransparency = 1
+AddCmd.AnchorPoint = Vector2.new(0, 0)
+AddCmd.Visible = true
+AddCmd.ZIndex = 5
+AddCmd.ClipsDescendants = false
+AddCmd.LayoutOrder = 0
+AddCmd.Active = true
+AddCmd.LineHeight = 1
+AddCmd.MaxVisibleGraphemes = -1
+
+local AddNoclip = Instance.new("TextButton")
+AddNoclip.Name = "AddNoclip"
+AddNoclip.Parent = KeybindsEditor
+AddNoclip.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+AddNoclip.BackgroundTransparency = 0
+AddNoclip.BorderColor3 = Color3.fromRGB(46, 46, 47)
+AddNoclip.BorderSizePixel = 1
+AddNoclip.TextYAlignment = Enum.TextYAlignment.Center
+AddNoclip.TextXAlignment = Enum.TextXAlignment.Center
+AddNoclip.Position = UDim2.new(0, 401, 0, 73)
+AddNoclip.Size = UDim2.new(0, 51, 0, 18)
+AddNoclip.Font = Enum.Font.SourceSans
+AddNoclip.Text = "Add"
+AddNoclip.TextColor3 = Color3.fromRGB(255, 255, 255)
+AddNoclip.TextSize = 16
+AddNoclip.TextScaled = false
+AddNoclip.TextWrapped = false
+AddNoclip.TextTransparency = 0
+AddNoclip.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+AddNoclip.TextStrokeTransparency = 1
+AddNoclip.AnchorPoint = Vector2.new(0, 0)
+AddNoclip.Visible = true
+AddNoclip.ZIndex = 5
+AddNoclip.ClipsDescendants = false
+AddNoclip.LayoutOrder = 0
+AddNoclip.Active = true
+AddNoclip.LineHeight = 1
+AddNoclip.MaxVisibleGraphemes = -1
+
+        Cmdbar.Changed:Connect(function(property)
+            if suggestionsEnabled and property == 'Text' and Cmdbar.Text ~= "Command Bar" then
+                IndexContents(Cmdbar.Text,true,Frame)
+            end
+        end)
+
+        Add.MouseButton1Down:Connect(function()
+            KeybindsEditor:TweenPosition(UDim2.new(0.5,-230,1,-168), "InOut", "Quart", 0.3, true, nil)
+        end)
+
+local UserInputService = game:GetService("UserInputService")
+
+function dragGUI(gui)
+    local dragging
+    local dragInput
+    local dragStart
+    local startPos
+
+    local function update(input)
+        local delta = input.Position - dragStart
+        gui.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
+
+    gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            update(input)
+        end
+    end)
+end
+
+dragGUI(Top)
+
+Close.MouseButton1Down:Connect(function()
+    PopupFrame:TweenSize(UDim2.new(0,457,0,18), "InOut", "Quart", 0.5, true, nil)
+    wait(0.5)
+    PopupFrame:TweenSize(UDim2.new(0,0,0,18), "InOut", "Quart", 0.5, true, nil)
+    wait(0.5)
+    Top.Visible = false
+end)
+
+Minimize2.MouseButton1Down:Connect(function()
+            if KeybindsEditor.Position.Y.Offset == -168 then
+                KeybindsEditor:TweenPosition(UDim2.new(0.5,-230,1,-20), "InOut", "Quart", 0.3, true, nil)
+            else
+                KeybindsEditor:TweenPosition(UDim2.new(0.5,-230,1,-168), "InOut", "Quart", 0.3, true, nil)
+            end
+end)
+
+Suggestions:TweenPosition(UDim2.new(0,2,1,2), "InOut", "Quart", 0.5, true, nil)
+
+Cmdbar.Focused:Connect(function()
+    Suggestions:TweenPosition(UDim2.new(0,2,1,-240), "InOut", "Quart", 0.5, true)
+end)
+
+Cmdbar.FocusLost:Connect(function()
+    Suggestions:TweenPosition(UDim2.new(0,2,1,2), "InOut", "Quart", 0.5, true)
+end)
+
+Close2.MouseButton1Down:Connect(function()
+            KeybindsEditor:TweenPosition(UDim2.new(0.5,-230,1,5), "InOut", "Quart", 0.3, true, nil)
+            CTB.Text = 'Click to bind'
+            keybindCmd.Text = '      Type Command Here      '
+end)
+
+TextBox.Changed:connect(function(property)
+    if property == "Text" and TextBox:IsFocused() then
+        IndexContents(TextBox.Text,true,cmdsFrame,true)
+        if highlight.Position ~= UDim2.new(0,4,0,4) then
+            Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+            highlight:TweenPosition(UDim2.new(0,4,0,4), "InOut", "Quart", 0.3, true, nil)
+            wait(0.6)
+            settingsFrame.Visible = false
+            bansFrame.Visible = false
+            keybindsFrame.Visible = false
+            logsFrame.Visible = false
+            cmdsFrame.Visible = true
+            wait()
+            Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+        end
+    end
+end)
+
+local notifyCount = 0
+function notify(text)
+    local LnotifyCount = notifyCount+1
+    notifyCount = notifyCount+1
+    Message.Text = text
+    wait()
+    PersonalHint.Visible = true
+    PersonalHint:TweenSizeAndPosition(UDim2.new(0,1000,0,24),UDim2.new(0.5,-500,0,10), "Out", "Quart", 0.5)
+    Message:TweenSize(UDim2.new(0,1000,0,24), "Out", "Quart", 0.5)
+    wait(8)
+    if LnotifyCount == notifyCount then
+        PersonalHint:TweenSizeAndPosition(UDim2.new(0,0,0,24),UDim2.new(0.5,0,0,10), "Out", "Quart", 0.5)
+        Message:TweenSize(UDim2.new(0,0,0,24), "Out", "Quart", 0.5)
+        wait(0.5)
+        PersonalHint.Visible = false
+        notifyCount = 0
+    end
+end
+
+
+        
+                AddNoclip.MouseButton1Click:Connect(function()
+            if KeySelected then
+                addbind('togglenoclip',keyPressed)
+                refreshBinds()
+                if keyPressed == 'RightClick' or keyPressed == 'LeftClick' then
+                    notify('Binded '..keyPressed..' to toggle noclip')
+                else
+                    notify('Binded '..keyPressed:sub(14)..' to toggle noclip')
+                end
+            end
+        end)
+
+        AddFly.MouseButton1Click:Connect(function()
+            if KeySelected then
+                addbind('togglefly',keyPressed)
+                refreshBinds()
+                if keyPressed == 'RightClick' or keyPressed == 'LeftClick' then
+                    notify('Binded '..keyPressed..' to toggle fly')
+                else
+                    notify('Binded '..keyPressed:sub(14)..' to toggle fly')
+                end
+            end
+        end)
+        
+                AddCmd.MouseButton1Click:Connect(function()
+            if KeySelected then
+                if string.find(keybindCmd.Text, "\\\\") then
+                    notify('Only use one backslash to keybind multiple commands into one keybind or command')
+                elseif keybindCmd.Text == '      Type Command Here      ' then
+                    notify('Type a command in the box before binding it')
+                else
+                    addbind(keybindCmd.Text,keyPressed)
+                    refreshBinds()
+                    if keyPressed == 'RightClick' or keyPressed == 'LeftClick' then
+                        notify('Binded '..keyPressed..' to '..keybindCmd.Text)
+                    else
+                        notify('Binded '..keyPressed:sub(14)..' to '..keybindCmd.Text)
+                    end
+                end
+            end
+        end)
+        
+cmds.MouseButton1Down:Connect(function()
+    Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+    highlight:TweenPosition(UDim2.new(0,4,0,4), "InOut", "Quart", 0.3, true, nil)
+    wait(0.6)
+    settingsFrame.Visible = false
+    bansFrame.Visible = false
+    keybindsFrame.Visible = false
+    logsFrame.Visible = false
+    adminsFrame.Visible = false
+    cmdsFrame.Visible = true
+    wait()
+    Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+end)
+
+local CMDs = {}
+CMDs[#CMDs + 1] = {NAME = 'cmds / commands', DESC = 'Shows a list of commands'}
+CMDs[#CMDs + 1] = {NAME = 'settings', DESC = 'Opens settings tab'}
+CMDs[#CMDs + 1] = {NAME = 'keybinds', DESC = 'Opens keybinds tab'}
+CMDs[#CMDs + 1] = {NAME = 'bans', DESC = 'Shows a list of banned players'}
+CMDs[#CMDs + 1] = {NAME = 'admins', DESC = 'Shows a list of admins'}
+CMDs[#CMDs + 1] = {NAME = 'logs', DESC = 'Shows a list of command logs'}
+CMDs[#CMDs + 1] = {NAME = 'breakloops [plr]', DESC = 'Stops all looping commands (EXAMPLE: ;10^1^kill plr)'}
+CMDs[#CMDs + 1] = {NAME = 'kick [plr] [reason]', DESC = 'Kicks a player from the game'}
+CMDs[#CMDs + 1] = {NAME = 'ban [plr] [reason]', DESC = 'Bans a player from the game'}
+CMDs[#CMDs + 1] = {NAME = 'addban [plr]', DESC = 'Ban a player that is not in the game (FULL USERNAME)'}
+CMDs[#CMDs + 1] = {NAME = 'unban [plr]', DESC = 'Unbans a player from the game (FULL USERNAME)'}
+CMDs[#CMDs + 1] = {NAME = 'clrbans', DESC = 'Removes all bans'}
+CMDs[#CMDs + 1] = {NAME = 'serverlock / slock', DESC = 'Prevents players from joining the server'}
+CMDs[#CMDs + 1] = {NAME = 'unserverlock / unslock', DESC = 'Disables serverlock'}
+CMDs[#CMDs + 1] = {NAME = 'agelock [num]', DESC = 'Prevents players under a certain account age from joining the server'}
+CMDs[#CMDs + 1] = {NAME = 'unagelock', DESC = 'Disables agelock'}
+CMDs[#CMDs + 1] = {NAME = 'age [plr]', DESC = 'Notifies you of a players age'}
+CMDs[#CMDs + 1] = {NAME = 'mute [plr]', DESC = 'Prevents a player from chatting'}
+CMDs[#CMDs + 1] = {NAME = 'unmute [plr]', DESC = 'Allows a player to chat again'}
+CMDs[#CMDs + 1] = {NAME = 'removechat [plr]', DESC = 'Removes the chat gui for a player'}
+CMDs[#CMDs + 1] = {NAME = 'restorechat / enablechat [plr]', DESC = 'Restores or enables the chat gui'}
+CMDs[#CMDs + 1] = {NAME = 'hideplayerlist / hideplrlist [plr]', DESC = 'Disables the playerlist for a player'}
+CMDs[#CMDs + 1] = {NAME = 'showplayerlist / unhideplayerlist [plr]', DESC = 'Enables the playerlist for a player'}
+CMDs[#CMDs + 1] = {NAME = 'hidebackpack [plr]', DESC = 'Disables the backpack for a player'}
+CMDs[#CMDs + 1] = {NAME = 'showbackpack / unhidebackpack [plr]', DESC = 'Enables the backpack for a player'}
+CMDs[#CMDs + 1] = {NAME = 'name [plr] [name]', DESC = 'Changes a players name'}
+CMDs[#CMDs + 1] = {NAME = 'unname [plr]', DESC = 'Removes a players set name'}
+CMDs[#CMDs + 1] = {NAME = 'sit [plr]', DESC = 'Forces a player to sit'}
+CMDs[#CMDs + 1] = {NAME = 'freeze / fr [plr]', DESC = 'Freezes a players body'}
+CMDs[#CMDs + 1] = {NAME = 'thaw / unfr [plr]', DESC = 'Thaws a players body'}
+CMDs[#CMDs + 1] = {NAME = 'fly [plr]', DESC = 'Makes a player fly'}
+CMDs[#CMDs + 1] = {NAME = 'unfly [plr]', DESC = 'Disables fly'}
+CMDs[#CMDs + 1] = {NAME = 'flyspeed [plr] [num]', DESC = 'Changes how fast you fly'}
+CMDs[#CMDs + 1] = {NAME = 'noclip [plr]', DESC = 'Make your player walk through stuff'}
+CMDs[#CMDs + 1] = {NAME = 'clip / unnoclip [plr]', DESC = 'Disables noclip'}
+CMDs[#CMDs + 1] = {NAME = 'plrsound [plr] [ID]', DESC = 'Creates a sound inside of a player'}
+CMDs[#CMDs + 1] = {NAME = 'unplrsound / noplrsound [plr]', DESC = 'Removes any sounds inside of a player'}
+CMDs[#CMDs + 1] = {NAME = 'invisible / invis [plr]', DESC = 'Makes a player invisible'}
+CMDs[#CMDs + 1] = {NAME = 'visible / vis [plr]', DESC = 'Makes a player visible'}
+CMDs[#CMDs + 1] = {NAME = 'glass [plr]', DESC = 'Makes a characters material glass'}
+CMDs[#CMDs + 1] = {NAME = 'light [plr] [R G B]', DESC = 'Gives a player dynamic light'}
+CMDs[#CMDs + 1] = {NAME = 'unlight [plr]', DESC = 'Removes light from a player'}
+CMDs[#CMDs + 1] = {NAME = 'kill [plr]', DESC = 'Kills a player'}
+CMDs[#CMDs + 1] = {NAME = 'sethealth [plr] [num]', DESC = 'Sets a players health to a specified ammount'}
+CMDs[#CMDs + 1] = {NAME = 'maxhealth [plr] [num]', DESC = 'Gives a player any ammount of maximum health'}
+CMDs[#CMDs + 1] = {NAME = 'god [plr]', DESC = 'Gives you infinite health'}
+CMDs[#CMDs + 1] = {NAME = 'ungod [plr]', DESC = 'Removes god'}
+CMDs[#CMDs + 1] = {NAME = 'respawn [plr]', DESC = 'Respawns a player'}
+CMDs[#CMDs + 1] = {NAME = 'refresh / re [plr]', DESC = 'Respawns a player and moves them to their last position'}
+CMDs[#CMDs + 1] = {NAME = 'gear [plr] [ID]', DESC = 'Gives gear to a player'}
+CMDs[#CMDs + 1] = {NAME = 'sword [plr]', DESC = 'Gives a sword to a player'}
+CMDs[#CMDs + 1] = {NAME = 'removetools / notools [plr]', DESC = 'Take away a players tools'}
+CMDs[#CMDs + 1] = {NAME = 'startergear / sg [plr]', DESC = 'Makes current tools in your backpack return when you respawn'}
+CMDs[#CMDs + 1] = {NAME = 'nostartergear / nosg [plr]', DESC = 'Deletes all tools in startergear'}
+CMDs[#CMDs + 1] = {NAME = 'message / m [msg]', DESC = 'Display a message to everyone in the server'}
+CMDs[#CMDs + 1] = {NAME = 'servermessage / sm [msg]', DESC = 'Display a message to everyone in the server (Does not display your name)'}
+CMDs[#CMDs + 1] = {NAME = 'privatemessage / pm [plr] [msg]', DESC = 'Displays a message to players of your choice'}
+CMDs[#CMDs + 1] = {NAME = 'hint / h [msg]', DESC = 'Display a hint to everyone in the server'}
+CMDs[#CMDs + 1] = {NAME = 'privatehint / ph [msg]', DESC = 'Displays a hint to players of your choice'}
+CMDs[#CMDs + 1] = {NAME = 'goto / to [plr]', DESC = 'Teleports you to a player'}
+CMDs[#CMDs + 1] = {NAME = 'bring [plr]', DESC = 'Brings a player to you'}
+CMDs[#CMDs + 1] = {NAME = 'tp [plr] [plr]', DESC = 'Teleport one player to another'}
+CMDs[#CMDs + 1] = {NAME = 'pipetp [plr] [plr]', DESC = 'Teleport one player to another with pipes'}
+CMDs[#CMDs + 1] = {NAME = 'speed [plr] [num]', DESC = 'Set the speed of a player'}
+CMDs[#CMDs + 1] = {NAME = 'music [ID]', DESC = 'Play and audio on the server'}
+CMDs[#CMDs + 1] = {NAME = 'volume / vol [num]', DESC = 'Adjust the loudness of the audio'}
+CMDs[#CMDs + 1] = {NAME = 'pitch [num]', DESC = 'Adjust the pitch of the audio'}
+CMDs[#CMDs + 1] = {NAME = 'btools / f3x [plr]', DESC = 'Gives a player f3x building tools'}
+CMDs[#CMDs + 1] = {NAME = 'flashlight [plr] [R G B]', DESC = 'Gives a player a flashlight'}
+CMDs[#CMDs + 1] = {NAME = 'clone [plr]', DESC = 'Creates a copy of someones character'}
+CMDs[#CMDs + 1] = {NAME = 'noclones / removeclones', DESC = 'Removes clones'}
+CMDs[#CMDs + 1] = {NAME = 'unlock [plr]', DESC = 'Unlock a players body parts'}
+CMDs[#CMDs + 1] = {NAME = 'lock [plr]', DESC = 'Lock a players body parts'}
+CMDs[#CMDs + 1] = {NAME = 'unlockws', DESC = 'Unlocks the entire workspace'}
+CMDs[#CMDs + 1] = {NAME = 'lockws', DESC = 'Locks the entire workspace'}
+CMDs[#CMDs + 1] = {NAME = 'unanchor', DESC = 'Unanchors the entire workspace'}
+CMDs[#CMDs + 1] = {NAME = 'anchor', DESC = 'Anchors the entire workspace'}
+CMDs[#CMDs + 1] = {NAME = 'gravity [num]', DESC = 'Adjust the ammount of gravity'}
+CMDs[#CMDs + 1] = {NAME = 'jumppower / jpower [plr] [num]', DESC = 'Adjust how high someone can jump'}
+CMDs[#CMDs + 1] = {NAME = 'explode [plr]', DESC = 'Makes a player go boom'}
+CMDs[#CMDs + 1] = {NAME = 'nuke [plr]', DESC = 'Creates a massive explosion'}
+CMDs[#CMDs + 1] = {NAME = 'bomb [plr]', DESC = 'Gives a player a timed bomb'}
+CMDs[#CMDs + 1] = {NAME = 'rocket [plr]', DESC = 'Attaches a rocket to a player and shoots them into space'}
+CMDs[#CMDs + 1] = {NAME = 'ff [plr]', DESC = 'Gives a player forcefield'}
+CMDs[#CMDs + 1] = {NAME = 'unff [plr]', DESC = 'Removes forcefield'}
+CMDs[#CMDs + 1] = {NAME = 'removelimbs / nolimbs [plr]', DESC = 'Removes a players limbs'}
+CMDs[#CMDs + 1] = {NAME = 'savelighting / slighting', DESC = 'Saves current config of lighting'}
+CMDs[#CMDs + 1] = {NAME = 'restorelighting / rlighting', DESC = 'Restores lighting to defaults or the last saved config'}
+CMDs[#CMDs + 1] = {NAME = 'time [num]', DESC = 'Changes the time'}
+CMDs[#CMDs + 1] = {NAME = 'ambient [R G B]', DESC = 'Changes the ambient color of the game'}
+CMDs[#CMDs + 1] = {NAME = 'fogend [num]', DESC = 'Changes how foggy the game is'}
+CMDs[#CMDs + 1] = {NAME = 'fogcolor [R G B]', DESC = 'Changes the color of the fog'}
+CMDs[#CMDs + 1] = {NAME = 'disco', DESC = 'Makes the ambient change colors'}
+CMDs[#CMDs + 1] = {NAME = 'nodisco / undisco', DESC = 'Disables disco'}
+CMDs[#CMDs + 1] = {NAME = 'globalshadows / gshadows', DESC = 'Enables global shadows'}
+CMDs[#CMDs + 1] = {NAME = 'noglobalshadows / nogshadows', DESC = 'Disables global shadows'}
+CMDs[#CMDs + 1] = {NAME = 'blur [num]', DESC = 'Adjusts the ammount of blur'}
+CMDs[#CMDs + 1] = {NAME = 'unblur / noblur', DESC = 'Removes any instances of blur'}
+CMDs[#CMDs + 1] = {NAME = 'rain [mesh] [texture]', DESC = 'Makes the specified mesh rain from the sky'}
+CMDs[#CMDs + 1] = {NAME = 'norain / unrain', DESC = 'Stops rain'}
+CMDs[#CMDs + 1] = {NAME = 'char [plr] [plr/ID]', DESC = 'Change your character appearance to someone else'}
+CMDs[#CMDs + 1] = {NAME = 'unchar [plr]', DESC = 'Sets your player appearance back to normal'}
+CMDs[#CMDs + 1] = {NAME = 'shrek [plr]', DESC = 'GET OUTTA MY SWAMP'}
+CMDs[#CMDs + 1] = {NAME = 'creeper [plr]', DESC = 'Turns the player into a minecraft creeper'}
+CMDs[#CMDs + 1] = {NAME = 'dog [plr]', DESC = 'Turns a player into a dog'}
+CMDs[#CMDs + 1] = {NAME = 'rainbow [plr]', DESC = 'Make a players body change colors'}
+CMDs[#CMDs + 1] = {NAME = 'earthquake [power] [intensity]', DESC = 'Moves parts around the workspace randomly'}
+CMDs[#CMDs + 1] = {NAME = 'clear', DESC = 'Clears the game and spawns an empty baseplate'}
+CMDs[#CMDs + 1] = {NAME = 'team [plr] [team]', DESC = 'Join a team in the playerlist'}
+CMDs[#CMDs + 1] = {NAME = 'createteam / newteam [name]', DESC = 'Creates a new team in the playerlist'}
+CMDs[#CMDs + 1] = {NAME = 'removeteam / deleteteam [name]', DESC = 'Delete a team'}
+CMDs[#CMDs + 1] = {NAME = 'jail [plr]', DESC = 'Captures a player inside of a jail'}
+CMDs[#CMDs + 1] = {NAME = 'unjail [plr]', DESC = 'Releases a player from jail'}
+CMDs[#CMDs + 1] = {NAME = 'fling [plr]', DESC = 'Flings a player'}
+CMDs[#CMDs + 1] = {NAME = 'smite [plr]', DESC = 'Strike a player with lightning'}
+CMDs[#CMDs + 1] = {NAME = 'blind [plr]', DESC = 'Makes a player unable to see'}
+CMDs[#CMDs + 1] = {NAME = 'unblind [plr]', DESC = 'Makes a player able to see'}
+CMDs[#CMDs + 1] = {NAME = 'meteor / asteroid [plr]', DESC = 'Sends an asteroid hurtling down at a player'}
+CMDs[#CMDs + 1] = {NAME = 'arrest [plr]', DESC = 'Cops get the player and the player gets kicked from the game'}
+CMDs[#CMDs + 1] = {NAME = 'zinniakick [plr]', DESC = 'Classic.'}
+CMDs[#CMDs + 1] = {NAME = 'zinnia [plr]', DESC = 'Zinnia script'}
+CMDs[#CMDs + 1] = {NAME = 'seagull / gull [plr]', DESC = 'Seagull picks up a player and rids the server of the player'}
+CMDs[#CMDs + 1] = {NAME = 'starman / st [plr]', DESC = 'What fun!'}
+CMDs[#CMDs + 1] = {NAME = 'unstarman / unst [plr]', DESC = 'Disables starman'}
+CMDs[#CMDs + 1] = {NAME = 'bait', DESC = 'Spawns a touch for "admin" pad'}
+CMDs[#CMDs + 1] = {NAME = 'removebait / nobait', DESC = 'Removes all bait pads'}
+CMDs[#CMDs + 1] = {NAME = 'begone [plr]', DESC = 'BEGONE THOT'}
+CMDs[#CMDs + 1] = {NAME = 'spasm [plr]', DESC = 'Makes the players body go crazy'}
+CMDs[#CMDs + 1] = {NAME = 'animation / anim [plr] [ID] [speed]', DESC = 'BEGONE THOT'}
+CMDs[#CMDs + 1] = {NAME = 'bang [plr] / [plr] [plr]', DESC = 'OwO'}
+CMDs[#CMDs + 1] = {NAME = 'bgui [plr] [text]', DESC = 'Create a GUI with text above a players head'}
+CMDs[#CMDs + 1] = {NAME = 'unbgui / nobgui [plr]', DESC = 'Removes bgui'}
+CMDs[#CMDs + 1] = {NAME = 'removeoverheadgui / rohg [plr]', DESC = 'Removes any surfance/billboard guis in a character'}
+CMDs[#CMDs + 1] = {NAME = 'sparkles [plr] [R G B]', DESC = 'Give a player sparkles'}
+CMDs[#CMDs + 1] = {NAME = 'nosparkles / unsparkles [plr]', DESC = 'Remove sparkles from a player'}
+CMDs[#CMDs + 1] = {NAME = 'fire [plr] [R G B]', DESC = 'Set a player on fire'}
+CMDs[#CMDs + 1] = {NAME = 'nofire / unfire [plr]', DESC = 'Remove fire from a player'}
+CMDs[#CMDs + 1] = {NAME = 'trail [plr] [R G B]', DESC = 'Give a player a trail effect'}
+CMDs[#CMDs + 1] = {NAME = 'untrail / notrail [plr]', DESC = 'Remove the trail effect'}
+CMDs[#CMDs + 1] = {NAME = 'size [plr] [num]', DESC = 'Adjusts a players size'}
+CMDs[#CMDs + 1] = {NAME = 'removehats / nohats [plr]', DESC = 'Removes all hats from a player'}
+CMDs[#CMDs + 1] = {NAME = 'hatsize [plr] [num]', DESC = 'Adjusts the size of a players hats'}
+CMDs[#CMDs + 1] = {NAME = 'headsize [plr] [num]', DESC = 'Adjusts the size of a players head'}
+CMDs[#CMDs + 1] = {NAME = 'punish [plr]', DESC = 'Removes their character'}
+CMDs[#CMDs + 1] = {NAME = 'unpunish [plr]', DESC = 'Adds back their character'}
+CMDs[#CMDs + 1] = {NAME = 'naked [plr]', DESC = 'Removes all cloths from a player'}
+CMDs[#CMDs + 1] = {NAME = 'cape [plr] [R G B]', DESC = 'Attaches a cape to a player'}
+CMDs[#CMDs + 1] = {NAME = 'particles [plr] [ID]', DESC = 'Emit particles from a player'}
+CMDs[#CMDs + 1] = {NAME = 'noparticles / unparticles [plr]', DESC = 'Removes all particle effects from a player'}
+CMDs[#CMDs + 1] = {NAME = 'uncape [plr]', DESC = 'Removes a players cape'}
+CMDs[#CMDs + 1] = {NAME = 'fat [plr]', DESC = 'Makes a player fat'}
+CMDs[#CMDs + 1] = {NAME = 'paper [plr]', DESC = 'Makes a player thin as paper'}
+CMDs[#CMDs + 1] = {NAME = 'duck [plr]', DESC = 'Turns a player into a duck'}
+CMDs[#CMDs + 1] = {NAME = 'mesh [plr] [mesh ID] [texture ID] [size X Y Z]', DESC = 'Morphs a player into a mesh'}
+CMDs[#CMDs + 1] = {NAME = 'longneck [plr]', DESC = 'Gives the player a very long neck'}
+CMDs[#CMDs + 1] = {NAME = 'unlongneck [plr]', DESC = 'Changes a players neck back to normal'}
+CMDs[#CMDs + 1] = {NAME = 'spin [plr]', DESC = 'Make a player spin'}
+CMDs[#CMDs + 1] = {NAME = 'unspin [plr]', DESC = 'Stop a player from spinning'}
+CMDs[#CMDs + 1] = {NAME = 'car [plr]', DESC = 'Spawns a car next to a player'}
+CMDs[#CMDs + 1] = {NAME = 'nocar / uncar [plr]', DESC = 'Removes a players car'}
+CMDs[#CMDs + 1] = {NAME = 'spawnpoint / spawn [plr]', DESC = 'Creates a spawn point under a player'}
+CMDs[#CMDs + 1] = {NAME = 'removespawns / nospawns', DESC = 'Removes all game spawns'}
+CMDs[#CMDs + 1] = {NAME = 'jumpscare / scare [plr]', DESC = 'Creates a spooky popup and loud audio for the player'}
+CMDs[#CMDs + 1] = {NAME = 'r6 [plr]', DESC = 'Gives a player the r6 rigtype'}
+CMDs[#CMDs + 1] = {NAME = 'chat [plr] [msg]', DESC = 'Force a player to chat something'}
+CMDs[#CMDs + 1] = {NAME = 'fakechat / fchat [name] [message]', DESC = 'Creates a fake chat in the global chat GUI'}
+CMDs[#CMDs + 1] = {NAME = 'bleach [plr]', DESC = 'Makes the player drink bleach'}
+CMDs[#CMDs + 1] = {NAME = 'view [plr]', DESC = 'Views a player'}
+CMDs[#CMDs + 1] = {NAME = 'unview', DESC = 'Unviews a player'}
+CMDs[#CMDs + 1] = {NAME = 'burn / witchunt [plr]', DESC = 'Burns a player'}
+CMDs[#CMDs + 1] = {NAME = 'trip [plr]', DESC = 'Trips a player'}
+CMDs[#CMDs + 1] = {NAME = 'ball [plr]', DESC = 'Lets a player roll around inside a giant hamster ball'}
+CMDs[#CMDs + 1] = {NAME = 'unball / noball [plr]', DESC = 'Removes the hamster ball'}
+CMDs[#CMDs + 1] = {NAME = 'chickenarms / chicken [plr]', DESC = 'Makes a player flap their arms'}
+CMDs[#CMDs + 1] = {NAME = 'change [plr] [stat] [num/string]', DESC = 'Change players stats on the playerlist'}
+CMDs[#CMDs + 1] = {NAME = 'decalspam [ID]', DESC = 'Spams the desired decal image on every part'}
+CMDs[#CMDs + 1] = {NAME = 'undecalspam', DESC = 'Removes the spammed decals'}
+CMDs[#CMDs + 1] = {NAME = 'spookyify', DESC = 'Make it spooky'}
+CMDs[#CMDs + 1] = {NAME = 'strobe', DESC = 'Epilepsy warning'}
+CMDs[#CMDs + 1] = {NAME = 'unstrobe / nostrobe', DESC = 'Turns off strobe'}
+CMDs[#CMDs + 1] = {NAME = 'copytools / ctools [plr] / [plr] [plr]', DESC = 'Copy tools from a players inventory'}
+CMDs[#CMDs + 1] = {NAME = 'deleteclass / dc [classname]', DESC = 'Deletes parts with a certain classname from workspace'}
+CMDs[#CMDs + 1] = {NAME = 'delete / remove [name]', DESC = 'Deletes parts with a certain name from workspace'}
+CMDs[#CMDs + 1] = {NAME = 'firstp [plr]', DESC = 'Forces a persons camera into first person mode'}
+CMDs[#CMDs + 1] = {NAME = 'thirdp [plr]', DESC = 'Forces a persons camera into third person mode'}
+CMDs[#CMDs + 1] = {NAME = 'maxzoom [plr] [num]', DESC = 'Sets how far a person can zoom out'}
+CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = '[OWNER ONLY]', DESC = 'Commands that can only be executed by the owner',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'removeadmin', DESC = 'Removes the admin from the server',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'owner [plr]', DESC = 'Gives a player owner',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'unowner [plr]', DESC = 'Removes a player from owner',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'admin [plr]', DESC = 'Gives a player admin commands',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'unadmin [plr]', DESC = 'Removes admin commands for a player',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'addadmin [plr]', DESC = 'Admin a player that is not in the game (FULL USERNAME)',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'shutdown [reason]', DESC = 'End a server',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'place / game [plr] [ID]', DESC = 'Teleport someone to a game',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'savemap / smap', DESC = 'Save the current map',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'restoremap / rmap', DESC = 'Restores the last saved map',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'execute / script [code]', DESC = 'Runs the code',COLOR = true}
+CMDs[#CMDs + 1] = {NAME = 'executelocal / localscript [code]', DESC = 'Runs the code locally', COLOR = true}
+wait()
+
+for i = 1, #CMDs do
+    local newcmd = CMD:Clone()
+    newcmd.Parent = cmdsFrame
+    newcmd.Text = CMDs[i].NAME
+    if CMDs[i].COLOR then
+        newcmd.TextColor3 = Color3.new(1, 0, 0)
+    end
+    newcmd.MouseButton1Click:Connect(function()
+        notify(''..CMDs[i].NAME..'  |  '..CMDs[i].DESC)
+    end)
+end
+
+local CMD2 = {}
+CMD2[#CMD2 + 1] = {NAME = 'cmds / commands'}
+CMD2[#CMD2 + 1] = {NAME = 'settings'}
+CMD2[#CMD2 + 1] = {NAME = 'keybinds'}
+CMD2[#CMD2 + 1] = {NAME = 'bans'}
+CMD2[#CMD2 + 1] = {NAME = 'admins'}
+CMD2[#CMD2 + 1] = {NAME = 'logs'}
+CMD2[#CMD2 + 1] = {NAME = 'breakloops [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'kick [plr] [reason]'}
+CMD2[#CMD2 + 1] = {NAME = 'ban [plr] [reason]'}
+CMD2[#CMD2 + 1] = {NAME = 'addban [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unban [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'clrbans'}
+CMD2[#CMD2 + 1] = {NAME = 'serverlock / slock'}
+CMD2[#CMD2 + 1] = {NAME = 'unserverlock / unslock'}
+CMD2[#CMD2 + 1] = {NAME = 'agelock [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'unagelock'}
+CMD2[#CMD2 + 1] = {NAME = 'age [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'mute [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unmute [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'removechat [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'restorechat / enablechat [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'hideplayerlist / hideplrlist [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'showplayerlist / unhideplayerlist [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'hidebackpack [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'showbackpack / unhidebackpack [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'name [plr] [name]'}
+CMD2[#CMD2 + 1] = {NAME = 'unname [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'sit [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'freeze / fr [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'thaw / unfr [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'fly [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unfly [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'flyspeed [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'noclip [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'clip / unnoclip [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'plrsound [plr] [ID]'}
+CMD2[#CMD2 + 1] = {NAME = 'unplrsound / noplrsound [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'invisible / invis [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'visible / vis [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'glass [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'light [plr] [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'unlight [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'kill [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'sethealth [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'maxhealth [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'god [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'ungod [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'respawn [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'refresh / re [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'gear [plr] [ID]'}
+CMD2[#CMD2 + 1] = {NAME = 'sword [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'removetools / notools [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'startergear / sg [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'nostartergear / nosg [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'message / m [msg]'}
+CMD2[#CMD2 + 1] = {NAME = 'servermessage / sm [msg]'}
+CMD2[#CMD2 + 1] = {NAME = 'privatemessage / pm [plr] [msg]'}
+CMD2[#CMD2 + 1] = {NAME = 'hint / h [msg]'}
+CMD2[#CMD2 + 1] = {NAME = 'privatehint / ph [msg]'}
+CMD2[#CMD2 + 1] = {NAME = 'goto / to [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'bring [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'tp [plr] [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'pipetp [plr] [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'speed [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'music [ID]'}
+CMD2[#CMD2 + 1] = {NAME = 'volume / vol [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'pitch [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'btools / f3x [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'flashlight [plr] [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'clone [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'noclones / removeclones'}
+CMD2[#CMD2 + 1] = {NAME = 'unlock [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'lock [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unlockws'}
+CMD2[#CMD2 + 1] = {NAME = 'lockws'}
+CMD2[#CMD2 + 1] = {NAME = 'unanchor'}
+CMD2[#CMD2 + 1] = {NAME = 'anchor'}
+CMD2[#CMD2 + 1] = {NAME = 'gravity [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'jumppower / jpower [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'explode [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'nuke [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'bomb [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'rocket [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'ff [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unff [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'removelimbs / nolimbs [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'savelighting / slighting'}
+CMD2[#CMD2 + 1] = {NAME = 'restorelighting / rlighting'}
+CMD2[#CMD2 + 1] = {NAME = 'time [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'ambient [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'fogend [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'fogcolor [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'disco'}
+CMD2[#CMD2 + 1] = {NAME = 'nodisco / undisco'}
+CMD2[#CMD2 + 1] = {NAME = 'globalshadows / gshadows'}
+CMD2[#CMD2 + 1] = {NAME = 'noglobalshadows / nogshadows'}
+CMD2[#CMD2 + 1] = {NAME = 'blur [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'unblur / noblur'}
+CMD2[#CMD2 + 1] = {NAME = 'rain [mesh] [texture]'}
+CMD2[#CMD2 + 1] = {NAME = 'norain / unrain'}
+CMD2[#CMD2 + 1] = {NAME = 'char [plr] [plr/ID]'}
+CMD2[#CMD2 + 1] = {NAME = 'unchar [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'shrek [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'creeper [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'dog [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'rainbow [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'earthquake [power] [intensity]'}
+CMD2[#CMD2 + 1] = {NAME = 'clear'}
+CMD2[#CMD2 + 1] = {NAME = 'team [plr] [team]'}
+CMD2[#CMD2 + 1] = {NAME = 'createteam / newteam [name]'}
+CMD2[#CMD2 + 1] = {NAME = 'removeteam / deleteteam [name]'}
+CMD2[#CMD2 + 1] = {NAME = 'jail [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unjail [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'fling [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'smite [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'blind [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unblind [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'meteor / asteroid [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'arrest [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'zinniakick [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'zinnia [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'seagull / gull [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'starman / st [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unstarman / unst [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'bait'}
+CMD2[#CMD2 + 1] = {NAME = 'removebait / nobait'}
+CMD2[#CMD2 + 1] = {NAME = 'begone [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'spasm [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'animation / anim [plr] [ID] [speed]'}
+CMD2[#CMD2 + 1] = {NAME = 'bang [plr] / [plr] [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'bgui [plr] [text]'}
+CMD2[#CMD2 + 1] = {NAME = 'unbgui / nobgui [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'removeoverheadgui / rohg [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'sparkles [plr] [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'nosparkles / unsparkles [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'fire [plr] [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'nofire / unfire [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'trail [plr] [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'untrail / notrail [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'size [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'removehats / nohats [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'hatsize [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'headsize [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = 'punish [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unpunish [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'naked [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'cape [plr] [R G B]'}
+CMD2[#CMD2 + 1] = {NAME = 'particles [plr] [ID]'}
+CMD2[#CMD2 + 1] = {NAME = 'noparticles / unparticles [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'uncape [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'fat [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'paper [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'duck [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'mesh [plr] [mesh ID] [texture ID] [size X Y Z]'}
+CMD2[#CMD2 + 1] = {NAME = 'longneck [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unlongneck [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'spin [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unspin [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'car [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'nocar / uncar [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'spawnpoint / spawn [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'removespawns / nospawns'}
+CMD2[#CMD2 + 1] = {NAME = 'jumpscare / scare [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'r6 [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'chat [plr] [msg]'}
+CMD2[#CMD2 + 1] = {NAME = 'fakechat / fchat [name] [message]'}
+CMD2[#CMD2 + 1] = {NAME = 'bleach [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'view [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unview'}
+CMD2[#CMD2 + 1] = {NAME = 'burn / witchunt [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'trip [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'ball [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'unball / noball [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'chickenarms / chicken [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'change [plr] [stat] [num/string]'}
+CMD2[#CMD2 + 1] = {NAME = 'decalspam [ID]'}
+CMD2[#CMD2 + 1] = {NAME = 'undecalspam'}
+CMD2[#CMD2 + 1] = {NAME = 'spookyify'}
+CMD2[#CMD2 + 1] = {NAME = 'strobe'}
+CMD2[#CMD2 + 1] = {NAME = 'unstrobe / nostrobe'}
+CMD2[#CMD2 + 1] = {NAME = 'copytools / ctools [plr] / [plr] [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'deleteclass / dc [classname]'}
+CMD2[#CMD2 + 1] = {NAME = 'delete / remove [name]'}
+CMD2[#CMD2 + 1] = {NAME = 'firstp [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'thirdp [plr]'}
+CMD2[#CMD2 + 1] = {NAME = 'maxzoom [plr] [num]'}
+CMD2[#CMD2 + 1] = {NAME = ''}
+CMD2[#CMD2 + 1] = {NAME = '[OWNER ONLY]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'removeadmin', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'owner [plr]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'unowner [plr]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'admin [plr]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'unadmin [plr]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'addadmin [plr]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'shutdown [reason]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'place / game [plr] [ID]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'savemap / smap', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'restoremap / rmap', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'execute / script [code]', COLOR = true}
+CMD2[#CMD2 + 1] = {NAME = 'executelocal / localscript [code]', COLOR = true}
+
+for i = 1, #CMD2 do
+    local newcmd2 = CMD:Clone()
+    newcmd2.Parent = Frame
+    newcmd2.Text = CMD2[i].NAME
+    if CMD2[i].COLOR then
+        newcmd2.TextColor3 = Color3.new(1, 0, 0)
+    end
+end
+
+settings.MouseButton1Down:Connect(function()
+    Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+    highlight:TweenPosition(UDim2.new(0,4,0,29), "InOut", "Quart", 0.3, true, nil)
+    wait(0.6)
+    cmdsFrame.Visible = false
+    bansFrame.Visible = false
+    keybindsFrame.Visible = false
+    logsFrame.Visible = false
+    adminsFrame.Visible = false
+    settingsFrame.Visible = true
+    wait()
+    Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+end)
+
+bans.MouseButton1Down:Connect(function()
+    Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+    highlight:TweenPosition(UDim2.new(0,4,0,79), "InOut", "Quart", 0.3, true, nil)
+    wait(0.6)
+    cmdsFrame.Visible = false
+    settingsFrame.Visible = false
+    keybindsFrame.Visible = false
+    logsFrame.Visible = false
+    adminsFrame.Visible = false
+    bansFrame.Visible = true
+    wait()
+    PopupFrame.Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+end)
+
+keybinds.MouseButton1Down:Connect(function()
+    Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+    highlight:TweenPosition(UDim2.new(0,4,0,54), "InOut", "Quart", 0.3, true, nil)
+    wait(0.6)
+    cmdsFrame.Visible = false
+    settingsFrame.Visible = false
+    bansFrame.Visible = false
+    logsFrame.Visible = false
+    adminsFrame.Visible = false
+    keybindsFrame.Visible = true
+    wait()
+    Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+end)
+
+admins.MouseButton1Down:Connect(function()
+    Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+    highlight:TweenPosition(UDim2.new(0,4,0,104), "InOut", "Quart", 0.3, true, nil)
+    wait(0.6)
+    cmdsFrame.Visible = false
+    settingsFrame.Visible = false
+    bansFrame.Visible = false
+    keybindsFrame.Visible = false
+    logsFrame.Visible = false
+    adminsFrame.Visible = true
+    wait()
+    Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+end)
+
+logs.MouseButton1Down:Connect(function()
+    Items:TweenPosition(UDim2.new(0,-335,0,46), "InOut", "Quart", 0.5, true, nil)
+    highlight:TweenPosition(UDim2.new(0,4,0,129), "InOut", "Quart", 0.3, true, nil)
+    wait(0.6)
+    cmdsFrame.Visible = false
+    settingsFrame.Visible = false
+    bansFrame.Visible = false
+    keybindsFrame.Visible = false
+    adminsFrame.Visible = false
+    logsFrame.Visible = true
+    wait()
+    Items:TweenPosition(UDim2.new(0,0,0,46), "InOut", "Quart", 0.5, true, nil)
+end)
+
+function logtime()
+    local HOUR = math.floor((tick() % 86400) / 3600)
+    local MINUTE = math.floor((tick() % 3600) / 60)
+    local SECOND = math.floor(tick() % 60)
+    local AP = HOUR > 11 and 'PM' or 'AM'
+    HOUR = (HOUR % 12 == 0 and 12 or HOUR % 12)
+    HOUR = HOUR < 10 and '0' .. HOUR or HOUR
+    MINUTE = MINUTE < 10 and '0' .. MINUTE or MINUTE
+    SECOND = SECOND < 10 and '0' .. SECOND or SECOND
+    return HOUR .. ':' .. MINUTE .. ':' .. SECOND .. ' ' .. AP
+end
+
+function CreateLabel(Name,arg1)
+    local sf = logsFrame
+    if #sf:GetChildren() >= 2546 then
+        sf:ClearAllChildren()
+    end
+    local alls = 0
+    for i,v in pairs(sf:GetChildren()) do
+        if v then
+            alls = v.Size.Y.Offset + alls
+        end
+        if not v then
+            alls = 0
+        end
+    end
+    local tl = Instance.new('TextLabel', sf)
+    local il = Instance.new('Frame', tl)
+    tl.Name = Name
+    tl.ZIndex = 5
+    tl.Text = logtime().." - ["..Name.."]: "..arg1
+    tl.Size = UDim2.new(0,327,0,84)
+    tl.BackgroundTransparency = 1
+    tl.BorderSizePixel = 0
+    tl.Font = "SourceSansBold"
+    tl.Position = UDim2.new(-1,0,0,alls)
+    tl.TextTransparency = 1
+    tl.TextScaled = false
+    tl.TextSize = 14
+    tl.TextWrapped = true
+    tl.TextXAlignment = "Left"
+    tl.TextYAlignment = "Top"
+    il.BackgroundTransparency = 1
+    il.BorderSizePixel = 0
+    il.Size = UDim2.new(0,12,1,0)
+    il.Position = UDim2.new(0,410,0,0)
+    tl.TextColor3 = Color3.fromRGB(255,255,255)
+    tl.Size = UDim2.new(0,327,0,tl.TextBounds.Y)
+    sf.CanvasSize = UDim2.new(0,0,0,alls+tl.TextBounds.Y+3)
+    sf.CanvasPosition = Vector2.new(0,sf.CanvasPosition.Y+tl.TextBounds.Y)
+    local size2 = sf.CanvasSize.Y.Offset
+    tl:TweenPosition(UDim2.new(0,4,0,alls), 'In', 'Quint', 0.5)
+    for i = 0,50 do wait(0.05)
+        tl.TextTransparency = tl.TextTransparency - 0.05
+    end
+    tl.TextTransparency = 0
+end
+
+
+
+Match = function(name,str)
+    return name:lower():find(str:lower()) and true
+end
+
+IndexContents = function(str,bool,gui,hidden)
+    local Index,SizeY = 0,0
+    for i,v in next, gui:GetChildren() do
+        if bool then
+            if Match(v.Text,str) then
+                Index = Index + 1
+                if hidden then
+                    v:TweenPosition(UDim2.new(0,3,0,Index*v.AbsoluteSize.Y-v.AbsoluteSize.Y), "InOut", "Quart", 0.5, true, nil)
+                else
+                    v.Position = UDim2.new(0,3,0,Index*v.AbsoluteSize.Y-v.AbsoluteSize.Y)
+                end
+                v.Visible = true
+                SizeY = SizeY + v.AbsoluteSize.Y
+                gui.CanvasSize = UDim2.new(0,0,0,SizeY)
+            else
+                v.Visible = false
+            end
+        else
+            v.Visible = true
+            SizeY = SizeY + v.AbsoluteSize.Y
+            gui.CanvasSize = UDim2.new(0,0,0,SizeY)
+        end
+    end
+end
+
+IndexContents('',true,cmdsFrame)
+IndexContents('',true,Frame)
+
+function addbind(cmd,key)
+    binds[#binds+1]=
+    {
+    COMMAND=cmd;
+    KEY=key;
+    }
+end
+
+local chatbox
+if pcall(function() chatbox = Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar end) then    
+    local function Index()
+        if suggestionsEnabled and chatbox:IsFocused() then
+            if chatbox.Text:lower():sub(1,1) == prefix then
+                IndexContents(chatbox.Text:lower():sub(2),true,Frame)
+            else
+                Suggestions:TweenPosition(UDim2.new(0,2,1,2), "InOut", "Quart", 0.5, true, nil)
+            end
+        end
+    end
+    chatbox:GetPropertyChangedSignal("Text"):Connect(Index)
+    
+    chatbox.FocusLost:connect(function(enterpressed)
+        if suggestionsEnabled then
+            Suggestions:TweenPosition(UDim2.new(0,2,1,2), "InOut", "Quart", 0.5, true, nil)
+        end
+    end)
+    
+    Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.ChildAdded:Connect(function(newbar)
+        wait()
+        if newbar:FindFirstChild('BoxFrame') then
+            chatbox = Players.LocalPlayer.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
+            chatbox:GetPropertyChangedSignal("Text"):Connect(Index)
+        end
+    end)
+else
+    print('Custom chat detected. Will not provide suggestions for commands typed in the chat.')
+end
+
+local function splitString(str,delim)
+    local broken = {}
+    if delim == nil then delim = "," end
+    for w in string.gmatch(str,"[^"..delim.."]+") do
+        table.insert(broken,w)
+    end
+    return broken
+end
+
+local historyCount = 0
+local cmdHistory = {}
+local split=" "
+lastBreakTime = 0
+function execCmd(cmdStr)
+    spawn(function()
+        if cmdStr ~= '' and cmdStr ~= ' ' then
+            local log = true
+            if string.find(cmdStr:sub(1, 6), "script") and string.find(cmdStr, "require%(") then log = false end
+            if string.find(cmdStr:sub(1, 7), "execute") and string.find(cmdStr, "require%(") then log = false end
+            if string.find(cmdStr:sub(1, 1), "s") and string.find(cmdStr, "require%(") then log = false end
+            if log == true then
+                FireCommand:FireServer('log',cmdStr)
+            end
+        end
+        local rawCmdStr = cmdStr
+        cmdStr = string.gsub(cmdStr,"\\\\","%%BackSlash%%")
+        local commandsToRun = splitString(cmdStr,"\\")
+        for i,v in pairs(commandsToRun) do
+            v = string.gsub(v,"%%BackSlash%%","\\")
+            local x,y,num = v:find("^(%d+)%^")
+            local cmdDelay = 0
+            if num then
+                v = v:sub(y+1)
+                local x,y,del = v:find("^([%d%.]+)%^")
+                if del then
+                    v = v:sub(y+1)
+                    cmdDelay = tonumber(del) or 0
+                end
+            end
+            num = tonumber(num or 1)
+            local args = splitString(v,split)
+            local cmd = args[1]
+            if cmd then
+                table.remove(args,1)
+                local cargs = args
+                if cmdHistory[1] ~= rawCmdStr then table.insert(cmdHistory,1,rawCmdStr) end
+                if #cmdHistory > 20 then table.remove(cmdHistory) end
+                local cmdStartTime = tick()
+                for rep = 1,num do
+                    if lastBreakTime > cmdStartTime then break end
+                    pcall(function()
+                        FireCommand:FireServer('command',cmd,args,cargs)
+                    end)
+                    if cmdDelay ~= 0 then wait(cmdDelay) end
+                end
+            end
+        end
+    end)    
+end    
+
+local getprfx=function(strn)
+    if strn:sub(1,string.len(prefix))==prefix then return{'cmd',string.len(prefix)+1}
+    end return
+    end
+        
+        function do_exec(str)
+            str = str:gsub('/e ', '')
+            local t = getprfx(str)
+            if not t then return end
+            str = str:sub(t[2])
+            if t[1]=='cmd' then
+                execCmd(str)
+            end
+        end
+        
+        
+        prefixBox.Changed:connect(function(property)
+            if property == "Text" then
+                prefix = prefixBox.Text
+            end
+        end)
+        
+        suggestionsBox.MouseButton1Down:Connect(function()
+            if suggestionsEnabled then
+                suggestionsEnabled = false
+                suggestionsBox.BackgroundColor3 = Color3.new(0.180392, 0.180392, 0.184314)
+            else
+                suggestionsEnabled = true
+                suggestionsBox.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.298039)
+            end
+        end)
+        
+        
+        
+        Clear.MouseButton1Down:Connect(function()
+            binds = {}
+            refreshBinds()
+        end)
+        
+
+        
+        
+                
+        function unkeybind(cmd,key)
+            for i = #binds,1,-1 do
+                if binds[i].COMMAND == cmd and binds[i].KEY == key then
+                    table.remove(binds, i)
+                end
+            end
+            refreshBinds()
+            if key == 'RightClick' or key == 'LeftClick' then
+                notify('Unbinded '..key..' from '..cmd)
+            else
+                notify('Unbinded '..key:sub(14)..' from '..cmd)
+            end
+        end
+        
+        function refreshBinds()
+            ListFrame:ClearAllChildren()
+            ListFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+            for i = 1, #binds do
+                local YSize = 22
+                local Position = ((i * YSize) - YSize)
+                local newcmd = Label:Clone()
+                newcmd.Parent = ListFrame
+                newcmd.Visible = true
+                newcmd.Position = UDim2.new(0,0,0, Position)
+                local input = tostring(binds[i].KEY)
+                local key
+                if input == 'RightClick' or input == 'LeftClick' then
+                    key = input
+                else
+                    key = input:sub(14)
+                end
+                newcmd.labelText.Text = key.." > "..binds[i].COMMAND
+                ListFrame.CanvasSize = UDim2.new(0,0,0, Position + 30)
+                local unban = newcmd.closeBox
+                unban.MouseButton1Click:Connect(function()
+                    unkeybind(binds[i].COMMAND,binds[i].KEY)
+                end)
+                if ListFrame.CanvasSize.Y.Offset >= 189 then
+                    for i,v in pairs(ListFrame:GetChildren()) do
+                        v.closeBox.Position = UDim2.new(v.closeBox.Position.X.Scale,307,v.closeBox.Position.Y.Scale,v.closeBox.Position.Y.Offset)
+                    end
+                else
+                    for i,v in pairs(ListFrame:GetChildren()) do
+                        v.closeBox.Position = UDim2.new(v.closeBox.Position.X.Scale,315,v.closeBox.Position.Y.Scale,v.closeBox.Position.Y.Offset)
+                    end
+                end
+            end
+        end
+        
+        local function onInputBegan(input,gameProcessed)
+            if AwaitingInput then
+                if input.UserInputType == Enum.UserInputType.Keyboard then
+                    keyPressed = tostring(input.KeyCode)
+                    CTB.Text = keyPressed:sub(14)
+                elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    keyPressed = 'LeftClick'
+                    CTB.Text = 'LeftClick'
+                elseif input.UserInputType == Enum.UserInputType.MouseButton2 then
+                    keyPressed = 'RightClick'
+                    CTB.Text = 'RightClick'
+                end
+                AwaitingInput = false
+                KeySelected = true
+            end
+            end
+        
+        UserInputService.InputBegan:connect(onInputBegan)
+        
+        
+
+        
+
+        
+        Players.LocalPlayer.Chatted:connect(function(message)
+            do_exec(message)
+        end)
+        
+        IYMouse.KeyDown:connect(function(Key)
+            if (Key==prefix) then
+                Cmdbar:CaptureFocus()
+            end
+        end)
+        
+
+        
+        Cmdbar.FocusLost:connect(function(enterpressed)
+            if enterpressed then
+                execCmd(Cmdbar.Text,Players.LocalPlayer)
+            end
+            Cmdbar.Text = "Command Bar"
+            if suggestionsEnabled then
+                Suggestions:TweenPosition(UDim2.new(0,2,1,2), "InOut", "Quart", 0.5, true, nil)
+            end
+        end)
+       
+        
+        Cmdbar.Focused:Connect(function()
+            historyCount = 0
+        end)
+        
+        
+        print('LOADED CLIENT')
